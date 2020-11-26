@@ -49,6 +49,8 @@ public class HelloController {
 		Employee employee = helloService.findOne(id);
 
 
+		//model.addAttributeは、キーと値をセットにしておく。
+		//get●●() employeeで@Dataしたので勝手に作られたgetter
 		model.addAttribute("id", employee.getEmployeeId());
 		model.addAttribute("name", employee.getEmployeeName());
 		model.addAttribute("age", employee.getEmployeeAge());
