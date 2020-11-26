@@ -7,13 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-@Autowired
-private HelloService helloService;
+
 
 //@Controllerこのクラスがコントローラーであることを宣言
 //これを宣言しておくと、DIが利用できるようになる
 @Controller
 public class HelloController {
+
+	@Autowired
+	private HelloService helloService;
 
 	//@GetMappingはアノテーションをメソッド(getHell)につけるとHTTPRequestのGETメソッドを処理できるようになる
 	//localhost: 8080/ helloへGETRequest
@@ -37,16 +39,21 @@ public class HelloController {
 	}
 
 
-	public String postDbRequest(@RequestParm("text2")String str,Model model) {
+	@PostMapping("hello/bd")
+	public String postDbRequest(@RequestParam("text2")String str,Model model) {
 		int id = Integer.parseInt(str);
 
-		Employee employee = helloService.fingOne(id);
+		//findOne(id)→入力されたidをHelloServiceにもっていく
+		//引数のあるコンストラクタ
+		//コントローラー→サービスへいく処理
+		Employee employee = helloService.findOne(id);
 
-		model.addAttribute("id", employee.getEmployeeID());
+
+		model.addAttribute("id", employee.getEmployeeId());
 		model.addAttribute("name", employee.getEmployeeName());
 		model.addAttribute("age", employee.getEmployeeAge());
 
-		return "helloResponseDB";
+		return "helloResponseDB"; //helloResponseDB.htmlへ画面がいく
 	}
 
 }

@@ -3,13 +3,13 @@ package com.example.demo.trySpring;
 import lombok.Data;
 
 //ドメインクラス:リポジトリクラスやサービスクラスなどの間で渡すクラスのこと
+//@Dataを付けると、getterとsetterを自動生成してくれる。
+
+@Data
 public class Employee {
 
-//	@Dataを付けると、getterとsetterを自動生成してくれる。
-	@Data
-	private int employeeId;
-	pribate String employeeName;
-	private int age;
-
+	private int employeeId; //従業員ID
+	private String employeeName;//従業員名
+	private int employeeAge;//年齢
 
 }
