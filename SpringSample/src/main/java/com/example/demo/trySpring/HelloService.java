@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloService {
 
-//	@Autowiredをつけるとインスタンス化みたいになる。HelloRepositoryインスタンス
+	//	@Autowiredをつけるとインスタンス化みたいになる。HelloRepositoryインスタンス
 	@Autowired
 	private HelloRepository helloRepository;
 
@@ -20,16 +20,19 @@ public class HelloService {
 
 		//1件検索実行
 		//MapのキーString型、値の型Object(何でもつっこめる)
+		//		コンストラクタが呼ばれる。HelloRepositoryのpublic Map<String, Object>findOne(int id)へ
 
-		Map<String,Object> map = helloRepository.findOne(id);
+		Map<String, Object> map = helloRepository.findOne(id);
+
+		//		コンストラクタからselect文の実行結果（employee）が返ってきた
 
 		//Mapから値を取得
-		int employeeId = (Integer)map.get("employee_id");
-		String employeeName = (String)map.get("employee_name");
-		int age = (Integer)map.get("age");
+		//map.getの意味Mapに入っている
+		int employeeId = (Integer) map.get("employee_id");
+		String employeeName = (String) map.get("employee_name");
+		int age = (Integer) map.get("age");
 
-
-//		Employeeクラスに値をセット
+		//		Employeeクラスに値をセット
 
 		Employee employee = new Employee();
 
