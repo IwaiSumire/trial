@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ラーメンの注文</title>
+
+</head>
+<body>
+	<h1>ラーメン</h1>
+	<h2>メニュー表</h2>
+	<div>
+		<p>商品番号</p>
+		<p>商品名</p>
+	</div>
+	<div>
+		<p>101</p>
+		<p>醬油ラーメン</p>
+	</div>
+	<div>
+		<p>102</p>
+		<p>塩ラーメン</p>
+	</div>
+	<div>
+		<p>103</p>
+		<p>豚骨ラーメン</p>
+	</div>
+	<br />
+	<br />
+	<h2>注文する商品番号を入力してください</h2>
+	<form method="post" action="/order">
+		注文番号： <input type="text" name="text" th:value="${text_value}" /> <input
+			type="submit" value="注文確定" />
+	</form>
+</body>
+</html>

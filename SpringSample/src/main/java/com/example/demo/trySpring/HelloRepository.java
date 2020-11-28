@@ -30,9 +30,18 @@ public class HelloRepository {
 		//		selectを実行する
 		//		？だったIDには入力された数字が入っている
 
-		Map<String, Object> employee = jdbcTemplate.queryForMap(query, id);
-		return employee;
-		//		empoyeeにという名前のMapに、キーがselect文、値がidが入っている
-
+		Map<String, Object> employeeDb = jdbcTemplate.queryForMap(query, id);
+		return employeeDb;
+		
+		//queryForMapはMapにしまう→これは仕様 文＋キー
+		
+		
+		//jdbcTemplate javaとDBを作り変えてくれる
+		//queryForMapメソッド 他人がつくったやつ
+		//empoyeeにという名前のMapに、キーがselect文、値がidが入っている
+		//f3で中身みれるor宣言を開く
+		//queryForMap
+		
+		//メソッドとは機能
 	}
 }

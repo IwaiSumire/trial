@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class HelloController {
 
-	//	@Autowiredは自動的にDIする
+	//@Autowiredは自動的にDIする
 	@Autowired
 	private HelloService helloService;
 
 	//@GetMappingはアノテーションをメソッド(getHello)につけるとHTTPRequestのGETメソッドを処理できるようになる
 	//localhost: 8080/ helloへGETRequest
 
-	@GetMapping("/hello") //
+	@GetMapping("/hello") 
 	public String getHello() {
 		return "hello"; //このhelloはhello.htmlのこと
 	}
@@ -47,11 +47,16 @@ public class HelloController {
 
 		//findOne(id)→入力されたidをHelloServiceにもっていく
 		//コントローラー→サービスへいく処理
+		//helloServiceはインスタンス化されたやつ
+		
+		//Employee employeeは箱
+		//Employeeに何入れるの？入力したidに紐づいたDBの情報
 		Employee employee = helloService.findOne(id);
 
 //		ここから↓は結果が返ってきたときの処理
 		//model.addAttributeは、キーと値をセットにしておく。
 		//get●●() employeeで@Dataしたので勝手に作られたgetter
+		
 		model.addAttribute("id", employee.getEmployeeId());
 		model.addAttribute("name", employee.getEmployeeName());
 		model.addAttribute("age", employee.getEmployeeAge());
