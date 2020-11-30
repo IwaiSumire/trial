@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,7 +36,7 @@ public class SignupController {
 	//	ユーザの登録画面のGEt用コントローラー
 
 	@GetMapping("/signup")
-	public String getSignup(@ModelAttribute SignupForm form, Model model) {
+	public String getSignUp(@ModelAttribute SignupForm form, Model model) {
 
 		//		radioMarriageに、nitRadioMarriage()で呼び出したキーと値を渡す。
 		radioMarriage = initRadioMarriage();
@@ -51,12 +52,12 @@ public class SignupController {
 	@PostMapping("/signup")
 	//ModelAttributeに登録すると、Modelクラスに勝手に登録される
 	//	データバインドを受け取るには、引数にBindingResult bindingResultを追加する
-	public String postSignup(@ModelAttribute SignupForm form,
+	public String postSignUp(@ModelAttribute @Validated SignupForm form,
 
 			BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) { //入力エラーがありますか？
-			return getSignup(form, model); //あるとfalseがかえってくる
+			return getSignUp(form, model); //あるとfalseがかえってくる
 		}
 
 		System.out.println(form);
