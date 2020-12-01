@@ -18,27 +18,27 @@ import lombok.Data;
 @Data //勝手にgettr、setterを生成してくれる機能
 public class SignupForm {
 
-	@Email
-	@NotBlank
+	@NotBlank(groups = ValidGroup1.class)
+	@Email(groups = ValidGroup2.class)
 	private String userId;
 
-	@NotBlank
-	@Length(min = 4, max = 100)
-	@Pattern(regexp = "^[a-zA-Z0-9]+$")
+	@NotBlank(groups = ValidGroup1.class)
+	@Length(min = 4, max = 100, groups = ValidGroup2.class)
+	@Pattern(regexp = "^[a-zA-Z0-9]+$", groups = ValidGroup3.class)
 	private String password;
 
-	@NotBlank
+	@NotBlank(groups = ValidGroup1.class)
 	private String userName;
 
 	//画面から渡された文字列を日付型に変換してくれる
-	@NotNull
+	@NotNull(groups = ValidGroup1.class)
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private Date birthday;
 
-	@Min(20)
-	@Max(100)
+	@Min(value = 20, groups = ValidGroup2.class)
+	@Max(value = 100, groups = ValidGroup2.class)
 	private int age;
 
-	@AssertFalse //falseのみ可
+	@AssertFalse(groups = ValidGroup2.class) //falseのみ可
 	private boolean marriage;
 }

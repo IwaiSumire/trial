@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
 
 @Controller
@@ -52,13 +53,15 @@ public class SignupController {
 	@PostMapping("/signup")
 	//ModelAttributeに登録すると、Modelクラスに勝手に登録される
 	//	データバインドを受け取るには、引数にBindingResult bindingResultを追加する
-	public String postSignUp(@ModelAttribute @Validated SignupForm form,
+//	バリデーションの実装
+	public String postSignUp(@ModelAttribute @Validated(GroupOrder.class) SignupForm form,
 
 			BindingResult bindingResult, Model model) {
 
 		if (bindingResult.hasErrors()) { //入力エラーがありますか？
 			return getSignUp(form, model); //あるとfalseがかえってくる
 		}
+
 
 		System.out.println(form);
 
