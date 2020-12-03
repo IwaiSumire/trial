@@ -11,4 +11,7 @@ public class School implements Place {
 		System.out.println("ばいびー");
 	}
 
+
+
 }
+
