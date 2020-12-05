@@ -1,8 +1,10 @@
 package com.example.demo.login.controller;
 
+import java.sql.Date;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,9 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.login.domain.model.GroupOrder;
 import com.example.demo.login.domain.model.SignupForm;
+import com.example.demo.login.domain.model.User;
+import com.example.demo.login.domain.service.UserService.UserService;
 
 @Controller
 public class SignupController {
+
+	@Autowired
+	private UserService userService;
 
 	//このクラスでしか仕様できないmap radioMarriageを定義
 	private Map<String, String> radioMarriage;
@@ -64,6 +71,25 @@ public class SignupController {
 
 
 		System.out.println(form);
+
+		User user = new User();
+
+		user.setUserId(form.getUserId());
+		user.setPassword(form.getPassword());
+		user.setUserName(form.getUserName());
+		user.setBirthday((Date) form.getBirthday());
+		user.setAge(form.getAge());
+		user.setMarriage(form.isMarriage());
+		user.setRole("RPLE_GENERAL");
+
+
+		boolean result = userService.insert(user);
+
+		if(result == true) {
+			System.out.println("insert成功");
+		}else {
+			System.out.println("insert失敗");
+		}
 
 		//		POST送信で来た場合、リダイレクトしている
 		return "redirect:/login";

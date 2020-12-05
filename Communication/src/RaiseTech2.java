@@ -6,10 +6,13 @@ public class RaiseTech2 {
 		Place sc = new School();
 		Place of = new Ofice();
 
+
 		sc.morning();
 		sc.night();
 		of.morning();
 		of.night();
+		of.night(60);
+
 
 	}
 

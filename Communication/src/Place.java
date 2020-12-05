@@ -5,4 +5,6 @@ public interface Place {
 
 	void night(); //何も実装しない
 
+	void night(int x);
+
 }

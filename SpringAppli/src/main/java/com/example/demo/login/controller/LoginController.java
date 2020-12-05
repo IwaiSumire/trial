@@ -15,7 +15,7 @@ public class LoginController {
 
 	@PostMapping("/login") //URL /loginへ
 	public String postLogin(Model model) {
-		return "login/login"; //login/login.htmlへ
+		return "redirect:/home"; //loginボタンを押すとホーム画面にいく
 	}
 
 }

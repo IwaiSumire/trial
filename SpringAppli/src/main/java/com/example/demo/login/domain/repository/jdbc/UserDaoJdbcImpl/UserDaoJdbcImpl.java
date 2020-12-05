@@ -11,21 +11,40 @@ import com.example.demo.login.domain.model.User;
 import com.example.demo.login.domain.repository.UserDao;
 
 @Repository
-public class UserDaoJdbcImpl implements UserDao{
+public class UserDaoJdbcImpl implements UserDao {
 
 	@Autowired //これがついているフィールドに代入する
 	JdbcTemplate jdbc;
 
+	//m_userテーブル
+	//insert１件登録
 	@Override
 	public int count() throws DataAccessException {
-		// TODO 自動生成されたメソッド・スタブ
+
 		return 0;
 	}
 
 	@Override
 	public int insertOne(User user) throws DataAccessException {
-		// TODO 自動生成されたメソッド・スタブ
-		return 0;
+
+		int rowNumber = jdbc.update("insert into m_user(user_id, "
+				+"password, "
+				+"user_name, "
+				+"birthday, "
+				+"age, "
+				+"marriage, "
+				+"role)"
+				+"values(?,?,?,?,?,?,?) "
+				,user.getUserId()
+				,user.getPassword()
+				,user.getUserName()
+				,user.getBirthday()
+				,user.getAge()
+				,user.isMarriage()
+				,user.getRole());
+//Userクラスで作った@Data
+
+		return rowNumber;
 	}
 
 	@Override
