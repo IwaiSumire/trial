@@ -11,9 +11,24 @@ public class RaiseTech2 {
 		sc.night();
 		of.morning();
 		of.night();
-		of.night(60);
 
-
+		int a = 10;
+		int b = --a - --a + a + a++ + a + --a ;
+		
+		
+		System.out.println(b);
+		System.out.println(9-8+8+8+9+8);
+		
+		String q = "sample";
+		String c = "sample";
+		
+		int f = 1;
+		int d =1;
+		
+		System.out.println(q.equals(c));
+		System.out.println(q == c);
+		
+		System.out.println(f == d);
 	}
 
 }

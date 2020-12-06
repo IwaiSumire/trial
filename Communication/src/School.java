@@ -11,11 +11,7 @@ public class School implements Place {
 		System.out.println("ばいびー");
 	}
 
-	@Override
-	public void night(int x) {
-		System.out.println(x);
 
-	}
 
 
 
