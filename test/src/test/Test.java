@@ -4,18 +4,24 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		String[] array = { "A", "B" };
 
-		for (String a : array) {
-			for (String b : array) {
-				if ("B".equals(b)) {
-					break;
+
+		int total = 0;
+
+		a: for (int i = 0; i < 5; i++) {
+			b: for (int j = 0; j < 5; j++) {
+				if (i % 2 == 0)
+					continue a;
+				if (3 < j) {
+					break b;
+
 				}
-				System.out.println(a);
-				System.out.println(b);
+				total += j;
 			}
-
 		}
+
+		System.out.println(total);
+	}
 	}
 
-}
+
