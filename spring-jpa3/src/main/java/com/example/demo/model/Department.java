@@ -18,16 +18,15 @@ import lombok.Setter;
 @Setter
 @Entity
 public class Department {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @NotBlank
+    @Size(max = 40)
+    private String name;
 
-	@NotBlank
-	@Size(max = 40)
-	private String name;
-
-	@OneToMany(mappedBy = "depatment")//mappedByで対照のフィールドを指定 //社員に対して部署は多:１
-	private List<Employee> employee;
-
+    @OneToMany(mappedBy = "department")
+    private List<Employee> employees;
 }
+
