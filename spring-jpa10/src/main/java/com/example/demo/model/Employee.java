@@ -8,16 +8,16 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+
+//gettersetterを生成
+@Data
 @Entity
 public class Employee {
-	
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//自動的にセットできるようになるidentity列
     private Long id;
 
     @NotBlank
