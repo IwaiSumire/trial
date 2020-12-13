@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>注文結果</title>
+</head>
+<body>
+
+	<h1>注文を下記の通り承りました</h1>
+	<table>
+		<tr>
+			<td>商品番号:</td>
+			<td th:text="${id}"></td>
+		</tr>
+		<tr>
+			<td>商品名：</td>
+			<td th:text="${name}"></td>
+		</tr>
+		<tr>
+			<td>価格：</td>
+			<td th:text="${price}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

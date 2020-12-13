@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>テキスト入力画面</title>
+
+</head>
+<body>
+	<h1>Hello World</h1>
+	<h1>Requestを受けたview</h1>
+	<form method="post" action="/hello">
+		なまえをいれてね：
+		<input type="text" name="text1" th:value="${text1_value}" /> <input
+			type="submit" value="クリックしてね" />
+	</form>
+	<br />
+	<form method="post" action="/hello">
+		従業員IDを入力： <input type="text" name="text2" th:value="${text2_value}" />
+		<input type="submit" value="クリックしてね" />
+	</form>
+</body>
+</html>
+
+<!-- th:value属性を使うと、画面で入力した値をコントローラーに渡すことができる -->
+<!-- method="post"を使うとPOST送信できる -->

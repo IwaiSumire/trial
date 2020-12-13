@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS menu ( menu_id INT PRIMARY KEY,  menu_name VARCHAR(50),  price INT);

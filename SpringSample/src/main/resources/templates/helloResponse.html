@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>テキストを入力したあと</title>
+</head>
+<body>
+	<h1>HelloResponse</h1>
+	<h2>ようこそ <span th:text="${sample}"></span> さん</h2>
+</body>
+</html>
+
+<!-- sampleとは、model.addAttribute("sample", str);でつくったキーのこと -->
