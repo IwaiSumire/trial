@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h2>登録内容確認</h2>
+	<div th:object="${player}">
+
+		<label>お店</label>
+		<div th:text="*{shop}"></div>
+
+
+		<label>種類</label>
+		<div th:text="*{type}"></div>
+
+		<label>評価</label>
+		<div th:text="*{star}"></div>
+
+	</div>
+
+</body>
+</html>

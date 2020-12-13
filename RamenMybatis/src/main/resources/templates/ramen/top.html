@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>ラーメンリスト</title>
+<link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<h1>ラーメンリスト</h1>
+
+	<button type="button">New ラーメン</button>
+
+	<table>
+		<thead>
+			<tr>
+				<th>＃NO</th>
+				<th>お店</th>
+				<th>種類</th>
+				<th>評価(★)</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="player:${players}" th:object="${player}">
+				<!-- each;DBの情報をすべて出すまで繰り返す -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{shop}"></td>
+				<td th:text="*{type}"></td>
+				<td th:text="*{star}"></td>
+				<td><button th:href="@{/players/{id}(id=*{id})}">詳細</button></td>
+				<td><button th:href="@{/players/{id}/edit(id=*{id})}">
+						変更</button></td>
+				<td>
+					<form th:action="@{/players/{id}(id=*{id})}" th:method="delete">
+						<!-- public delete にaccessできる -->
+						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
+						<button class="btn btn-default btn-xs">削除</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>新規ラーメン</title>
+</head>
+<body>
+
+	<h2>新規ラーメン作成</h2>
+
+	<form action="/my-handling-form-page" method="post">
+		<ul>
+			<li><label>お店</label> <br> <input type="text" name="shop">
+			</li>
+			<li><label>種類</label> <br> <input type="text" name="type">
+			</li>
+			<li><label>評価</label> <br> <input type="text" name="star">
+			</li>
+		</ul>
+		<button class="btn btn-primary">新規作成</button>
+	</form>
+
+</body>
+</html>
