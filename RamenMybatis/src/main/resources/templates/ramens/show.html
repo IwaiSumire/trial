@@ -5,16 +5,17 @@
 
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>ラーメンの詳細</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
 	<h2>登録内容確認</h2>
-	<div th:object="${player}">
+	<div th:object="${ramen}">
+
 
 		<label>お店</label>
 		<div th:text="*{shop}"></div>
-
 
 		<label>種類</label>
 		<div th:text="*{type}"></div>

@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorator="layout">
   <head>
-    <title>Listing Players</title>
+    <title>ラーメン</title>
   </head>
   <body>
     <div class="panel panel-primary" layout:fragment="content">
       <div class="panel-heading">
-        Listing Players
+        ラーメンの一覧表を作りましょう
         <a href="/players/new" class="btn btn-default btn-xs pull-right">New</a>
       </div>
       <div class="panel-body" th:if="!${players.size()}">
-        <p>Players are empty</p>
+        <p>ラーメンの一覧表を作りましょう</p>
       </div>
       <table class="table" th:if="${players.size()}">
         <thead>

@@ -1,6 +1,13 @@
 package com.example.demo.mapper;
 
-import java.util.List
+import java.util.List;
+
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 import com.example.demo.domein.Ramen;
 
@@ -8,7 +15,7 @@ import com.example.demo.domein.Ramen;
 public interface RamenMapper {
 
 	//全件取得
-	@Select("select * froms ramen")
+	@Select("select * from ramen")
 	List<Ramen> findAll();
 
 	@Select("select * from ramen where id = #{id}")

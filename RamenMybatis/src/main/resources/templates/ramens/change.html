@@ -6,19 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>ラーメン情報変更</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
 	<h2>ラーメン情報変更</h2>
 
-	<form th:action="@{/players/{id}(id=*{id})}" th:method="put"
-		th:object="${player}">
+	<form th:action="@{/ramens/{id}(id=*{id})}" th:method="put"
+		th:object="${ramen}">
+		<!-- 入力したやつをramenの中にいれて使える -->
 
 		<label>お店</label> <br> <input type="text" th:field="*{shop}" />
 		<br> <label>種類</label> <br> <input type="text"
 			th:field="*{type}" /> <br> <label>評価</label> <br> <input
 			type="text" th:field="*{star}" /> <br> <br>
-		<button>更新！</button>
+		<button class="btn btn-primary">更新！</button>
 
 
 	</form>

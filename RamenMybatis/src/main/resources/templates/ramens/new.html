@@ -5,12 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>新規ラーメン</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
 	<h2>新規ラーメン作成</h2>
 
-	<form action="/my-handling-form-page" method="post">
+	<form action="/my-handling-form-page" method="post" th:action="@{/ramens}" th:object="${ramen}">
 		<ul>
 			<li><label>お店</label> <br> <input type="text" name="shop">
 			</li>
