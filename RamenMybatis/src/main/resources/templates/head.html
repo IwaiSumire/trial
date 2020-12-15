@@ -1,21 +1,20 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
+<head th:fragment="header">
 <meta charset="utf-8" />
-<title layout:title-pattern="$CONTENT_TITLE - $DECORATOR_TITLE">Sample</title>
-<link rel="stylesheet" href="/css/bootstrap.min.css" />
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
+<title>header</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
 </head>
 <body>
-
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-3 col-md-6">
-				<div layout:fragment="content"></div>
-				<a href="/ramens" class="btn btn-link pull-right">Ramen</a>
-			</div>
-		</div>
-	</div>
+	<header th:frame="header">
+		<nav class="navbar navbar-light bg-primary md-n5">
+			<a class="navbar-brand" href="/ramens">Ramen</a>
+			<br>
+		</nav>
+	</header>
 </body>
+
 </html>

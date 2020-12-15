@@ -24,12 +24,12 @@ public class RamenController {
 	@GetMapping("") //最初の画面
 	public String top(Model model) { //全件取得
 		model.addAttribute("ramen", ramenService.findAll());
-		return "ramens/top";
+		return "ramens/top";//topでramen(全件入っている)を使える
 	}
 
-	@GetMapping("new") //top→form画面への移動用
-	public String newRamen() {
-		return "ramens/new";
+	@GetMapping("new") //top→newボタンから「ramnes/new」へ行く処理を受け取ったので"new"のとき
+	public String newRamen() { //全件取得
+		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
 	@PostMapping("") //formから作成された画面
@@ -50,14 +50,14 @@ public class RamenController {
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
-	@PutMapping("{id}") //更新画面
+	@PutMapping("put/{id}") //更新画面
 	public String update(@PathVariable Long id, @ModelAttribute Ramen ramen) {
 		ramen.setId(id);
 		ramenService.update(ramen);
 		return "redirect:/ramens";
 	}
 
-	@DeleteMapping("{id}") //消去画面
+	@DeleteMapping("{id}/delete") //消去画面
 	public String dast(@PathVariable Long id) {
 		ramenService.delete(id);
 		return "redirect:/ramens";

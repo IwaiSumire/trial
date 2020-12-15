@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layout">
-<head>
+<head th:replace="head :: header">
 <meta charset="UTF-8">
 <title>ラーメンリスト</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -12,7 +12,7 @@
 
 	<h1>ラーメンリスト</h1>
 
-	<a href="/ramens/new">
+	<a th:href="@{/ramens/new}">
 		<button type="button" class="btn btn-danger">New ラーメン</button>
 	</a>
 
@@ -22,7 +22,7 @@
 	</div>
 
 
-	<table class="table" th:if="${ramen.size()}">
+	<table class="table table-striped" th:if="${ramen.size()}"><!-- DBのデータがあるとき -->
 		<!-- データが１以上のとき -->
 		<thead>
 			<tr>
@@ -47,7 +47,7 @@
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
-					<form th:action="@{/ramens/{id}(id=*{id})}" th:method="delete">
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}" th:method="delete">
 						<!-- public delete にaccessできる -->
 						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
 						<button class="btn btn-dark">消去</button>
