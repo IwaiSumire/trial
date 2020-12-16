@@ -10,6 +10,7 @@ public class sample1 {
 		int num = Integer.parseInt("100");
 
 		System.out.println(num);
+		System.out.println(a);
 	}
 
 }
