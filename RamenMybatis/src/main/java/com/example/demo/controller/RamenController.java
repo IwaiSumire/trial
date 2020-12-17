@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,26 +34,31 @@ public class RamenController {
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
-	@PostMapping("") //formから作成された画面
-	public String create(@ModelAttribute Ramen ramen) {
-		ramenService.save(ramen);
+	@PostMapping("ramens/top") //formから作成された画面
+	public String create(@Validated @ModelAttribute Ramen ramen,BindingResult result) {
+
+		if(result.hasErrors() ) {
+			return "redirect:/ramens";
+		}
+
+		ramenService.save( ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
 
 	@GetMapping("{id}") //1件分のデータの中身を確認する
-	public String show(@PathVariable Long id, Model model) {
+	public String show(@Validated @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.findOne(id));
 		return "ramens/show";
 	}
 
 	@GetMapping("{id}/change") //編集画面に行くまでの画面
-	public String change(@PathVariable Long id, Model model) {
+	public String change(@Validated @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.findOne(id));
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
 	@PutMapping("put/{id}") //更新画面
-	public String update(@PathVariable Long id, @ModelAttribute Ramen ramen) {
+	public String update(@Validated @PathVariable Long id, @ModelAttribute Ramen ramen) {
 		ramen.setId(id);
 		ramenService.update(ramen);
 		return "redirect:/ramens";
