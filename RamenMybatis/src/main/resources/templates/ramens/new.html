@@ -12,8 +12,7 @@
 
 	<h2>新規ラーメン作成</h2>
 
-	<form action="/my-handling-form-page" method="post"
-		th:action="@{/ramens}" th:object="${ramen}">
+	<form method="post" th:action="@{/ramens/formtop}" th:object="${ramen}">
 		<ul>
 			<li><label>お店</label> <br> <input type="text" name="shop">
 			</li>

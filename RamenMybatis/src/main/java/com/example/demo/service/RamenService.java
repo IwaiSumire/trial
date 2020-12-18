@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.domein.Ramen;
+import com.example.demo.domain.Ramen;
 import com.example.demo.mapper.RamenMapper;
 
 @Service
@@ -16,23 +16,23 @@ public class RamenService {
 	private RamenMapper ramenMapper;
 
 	@Transactional
-	public List<Ramen> findAll() {
-		return ramenMapper.findAll();
+	public List<Ramen> selectAll() {
+		return ramenMapper.selectAll();
 	}
 
 	@Transactional
-	public Ramen findOne(Long id) {
-		return ramenMapper.findOne(id);
+	public Ramen selectOne(Long id) {
+		return ramenMapper.selectOne(id);
 	}
 
 	@Transactional
-	public void save(Ramen ramen) {
-		ramenMapper.save(ramen);
+	public void insert(Ramen ramen) {
+		ramenMapper.insert(ramen);
 	}
 
 	@Transactional
-	public void update(Ramen ramen) {
-		ramenMapper.update(ramen);
+	public int update(Ramen ramen) {
+		return ramenMapper.update(ramen);
 	}
 
 	@Transactional
