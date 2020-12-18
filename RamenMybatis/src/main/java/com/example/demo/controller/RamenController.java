@@ -54,7 +54,7 @@ public class RamenController {
 	@PutMapping("put/{id}") //更新画面
 	public String update(@Validated @PathVariable Long id, Ramen ramen,Model model) {
 		ramen.setId(id);
-		model.addAttribute("upNum", ramenService.update(ramen));
+		model.addAttribute("upNum", ramenService.update(ramen));//upNum更新回数
 		return "redirect:/ramens";
 	}
 
