@@ -1,8 +1,5 @@
 package com.example.demo.controller;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,16 +29,16 @@ public class RamenController {
 		return "ramens/top";//topでramen(全件入っている)を使える
 	}
 
-	@GetMapping("new") //top→newボタンから「ramnes/new」へ行く処理を受け取ったので"new"のとき
-	public String newRamen() { //全件取得
+	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
+	public String newRamen() {
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
-	@PostMapping("new2") //formから作成された画面
+	@PostMapping("new") //formから作成された画面
 	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
-			return "redirect:/ramens/new";
+			return "ramens/new";//"redirect:/ramens/new"
 		}
 
 		ramenService.insert(ramen);
