@@ -12,7 +12,7 @@
 
 	<h1>ラーメンリスト</h1>
 
-	<a href="/ramens/new">
+	<a th:href="@{/ramens/new}">
 		<button type="button" class="btn btn-danger">New ラーメン</button>
 	</a>
 
@@ -31,7 +31,7 @@
 				<th>お店</th>
 				<th>種類</th>
 				<th>評価(★)</th>
-				<th>更新回数</th>
+				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -43,7 +43,7 @@
 				<td th:text="*{shop}"></td>
 				<td th:text="*{type}"></td>
 				<td th:text="*{star}"></td>
-				<td th:text="${upNum}"></td>
+
 				<td><a th:href="@{/ramens/{id}(id=*{id})}"><button
 							type="button" class="btn btn-warning">詳細</button></a></td>
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button

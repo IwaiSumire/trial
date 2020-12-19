@@ -12,11 +12,19 @@
 
 	<h2>新規ラーメン作成</h2>
 
-	<form method="post" th:action="@{/ramens/formtop}" th:object="${ramen}">
+	<form method="post" th:action="@{/ramens/new2}" th:object="${ramen}">
 		<ul>
 			<li><label>お店</label> <br> <input type="text" name="shop">
+				<br>
+				<div th:if="${#fields.hasErrors('shop')}" th:errors="*{shop}">エラー</div>
+
+
 			</li>
+
+
+
 			<li><label>種類</label> <br> <input type="text" name="type">
+				<div th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></div>
 			</li>
 			<li><label>評価</label> <br> <select name="star">
 					<option value="★">★</option>
