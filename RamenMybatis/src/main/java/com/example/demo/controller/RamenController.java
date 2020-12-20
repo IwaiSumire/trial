@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -35,7 +34,7 @@ public class RamenController {
 	}
 
 	@PostMapping("new") //formから作成された画面
-	public String create(@ModelAttribute @Validated Ramen ramen, BindingResult result) {
+	public String create(@Validated Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"

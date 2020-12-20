@@ -16,16 +16,13 @@
 		<ul>
 			<li><label>お店</label> <br>
 
-			<input type="text" name="shop" /><!-- fieldはramen.shopとかにしてHTMLで使える -->
+			<input type="text" id="shop" name="shop" /><!-- fieldはramen.shopとかにしてHTMLで使える -->
 				<div th:if="${#fields.hasErrors('shop')}" th:errors="*{shop}">エラー</div>
 
 			</li>
 
 
-			<li><label>種類</label> <br>
-
-			<input type="text" name="type" th:field="*{type}">
-
+			<li><label>種類</label> <br> <input type="text" name="type" th:field="*{type}">
 			</li>
 			<li><label>評価</label> <br> <select name="star" th:field="*{star}">
 					<option value="★">★</option>
