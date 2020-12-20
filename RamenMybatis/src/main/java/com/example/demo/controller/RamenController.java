@@ -30,7 +30,7 @@ public class RamenController {
 	}
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
-	public String newRamen(@ModelAttribute Ramen ramen) {
+	public String newRamen(@ModelAttribute Ramen ramen) {//objectの値を受け取る必要がある
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 

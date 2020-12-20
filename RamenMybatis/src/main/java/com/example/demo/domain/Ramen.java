@@ -16,6 +16,7 @@ public class Ramen {
 	private String shop;
 
 	@NotBlank(message = "入力してください")
+	@Size(min = 1, max = 5,message = "1～5文字以内で入力してください")
 	private String type;
 
 	private String star;
