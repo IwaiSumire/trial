@@ -30,12 +30,12 @@ public class RamenController {
 	}
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
-	public String newRamen() {
+	public String newRamen(Ramen ramen) {
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
 	@PostMapping("new") //formから作成された画面
-	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result) {
+	public String create(@ModelAttribute @Validated Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
