@@ -7,6 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -29,12 +30,12 @@ public class RamenController {
 	}
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
-	public String newRamen(Ramen ramen) {
+	public String newRamen(@ModelAttribute Ramen ramen) {
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
 	@PostMapping("new") //formから作成された画面
-	public String create(@Validated Ramen ramen, BindingResult result) {
+	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
