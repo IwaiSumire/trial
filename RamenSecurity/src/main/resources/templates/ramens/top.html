@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head th:replace="head :: header">
+<meta charset="UTF-8">
+<title>ラーメンリスト</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+
+	<h1>ラーメンリスト</h1>
+
+	<a th:href="@{/ramens/new}">
+		<button type="button" class="btn btn-danger">New ラーメン</button>
+	</a>
+
+	<div class="panel-body" th:if="!${ramen.size()}">
+		<!-- データがゼロのとき -->
+		<p>食べたラーメンを登録しましょう！</p>
+	</div>
+
+
+	<table class="table table-striped" th:if="${ramen.size()}" >
+	<!-- DBのデータがあるとき -->
+		<!-- データが１以上のとき -->
+		<thead>
+			<tr>
+				<th>＃NO</th>
+				<th>お店</th>
+				<th>種類</th>
+				<th>評価(★)</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ramen:${ramen}" th:object="${ramen}" >
+				<!-- each;DBの情報をすべて出すまで繰り返す -->
+				<td th:text="*{id}"></td>
+				<td th:text="*{shop}"></td>
+				<td th:text="*{type}"></td>
+				<td th:text="*{star}"></td>
+
+				<td><a th:href="@{/ramens/{id}(id=*{id})}"><button
+							type="button" class="btn btn-warning">詳細</button></a></td>
+				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
+							type="button" class="btn btn-primary">変更</button></a></td>
+				<td>
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}" th:method="delete">
+						<!-- public delete にaccessできる -->
+						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
+						<button class="btn btn-dark">消去</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>ログイン</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<form method="post" action="/login">
+		<h1>Login</h1>
+		<label>ユーザID</label> <input type="text" name="userId"
+			class="form-control"> <br> <label>パスワード</label> <input
+			type="text" name="password" class="form-control"> <br>
+		<button type="submit" class="btn-primary">ログイン</button>
+
+	</form>
+</body>
+</html>
