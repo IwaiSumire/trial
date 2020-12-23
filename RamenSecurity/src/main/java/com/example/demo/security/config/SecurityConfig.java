@@ -12,6 +12,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+	/*パスワードの暗号用にbcryptを使用する
+	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
+	 * */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
@@ -23,10 +26,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		/*直リンクの禁止の記述*/
 
 		http
-				.authorizeRequests()
+				.authorizeRequests()//ルール
 				.anyRequest().authenticated()
 				.and()
-				.formLogin();
+				.formLogin()
+				.defaultSuccessUrl("/ramens", true);
 		//.authorizeRequests()
 		//.antMatchers("/login").permitAll()//ログインページは直リンクOK
 		//.anyRequest().fullyAuthenticated();//↑以外は直リンク禁止

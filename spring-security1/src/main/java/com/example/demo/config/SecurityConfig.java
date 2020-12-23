@@ -19,7 +19,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
 	/*パスワードの暗号用にbcryptを使用する
-	 *
+	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
 	 * */
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
