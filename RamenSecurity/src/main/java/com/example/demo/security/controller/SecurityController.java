@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class SecurityController {
 
-	@GetMapping("/rames") //ログインが成功すると/ramenに来るので
+	@GetMapping("/login") //ログインが成功すると/loginに来るので
 	public String success() {
-		return "ramens/top";
+		return "ramens";//url:ramensへいく
 	}
 }

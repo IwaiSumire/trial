@@ -27,10 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http
 				.authorizeRequests()//ルール
-				.anyRequest().authenticated()
+				.anyRequest().authenticated()//すべてのURLリクエストをloginしないと見れない
+				//↑特定のページを見れるようにするにはauthenticated()に入れる
 				.and()
 				.formLogin()
-				.defaultSuccessUrl("/ramens", true);
+				.failureUrl("/login")//ログイン失敗時のurlなくてもたぶんいい。
+				.defaultSuccessUrl("/ramens", true);//ログインが成功したら/ramensにいく
 		//.authorizeRequests()
 		//.antMatchers("/login").permitAll()//ログインページは直リンクOK
 		//.anyRequest().fullyAuthenticated();//↑以外は直リンク禁止
@@ -44,17 +46,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.failureUrl("/login")//ログイン失敗時の遷移先
 				.usernameParameter("userId")//ID
 				.passwordParameter("password")//パス
-				.defaultSuccessUrl("/top", true);//ログイン成功時の遷移先
+				.defaultSuccessUrl("/ramens", true);//ログイン成功時の遷移先
 		*/
 
 	}
 
+	/*インメモリにユーザー情報を設定する*/
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
-				.inMemoryAuthentication()
+				.inMemoryAuthentication()//インメモリの設定をします。
 				.withUser("user")
 				.password(passwordEncoder().encode("password"))
-				.authorities("ROLE_USER");
+				.authorities("ROLE_USER");//権限情報を設定
+
 	}
 }
