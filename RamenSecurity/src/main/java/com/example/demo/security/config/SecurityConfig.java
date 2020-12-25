@@ -33,7 +33,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()
 				.failureUrl("/login")//ログイン失敗時のurlなくてもたぶんいい。
 				.defaultSuccessUrl("/ramens", true);//ログインが成功したら/ramensにいく
-		//.authorizeRequests()
 		//.antMatchers("/login").permitAll()//ログインページは直リンクOK
 		//.anyRequest().fullyAuthenticated();//↑以外は直リンク禁止
 
@@ -57,7 +56,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth
 				.inMemoryAuthentication()//インメモリの設定をします。
 				.withUser("user")
-				.password(passwordEncoder().encode("password"))
+				.password(passwordEncoder().encode("pass"))
 				.authorities("ROLE_USER");//権限情報を設定
 
 	}
