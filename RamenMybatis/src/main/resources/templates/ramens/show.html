@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+
+<head th:replace="head :: header">
+<meta charset="UTF-8">
+<title>ラーメンの詳細</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+	<h2>登録内容確認</h2>
+	<div th:object="${ramen}">
+
+		<table class="table table-hover table-active table-primary">
+			<tr>
+				<th>お店</th>
+			</tr>
+			<tr>
+				<th><div th:text="*{shop}"></div></th>
+			</tr>
+			<tr>
+				<th>種類</th>
+			</tr>
+
+			<tr>
+				<th><div th:text="*{type}"></div></th>
+			</tr>
+			<tr>
+				<th>評価</th>
+				<tr>
+					<th><div th:text="*{star}"></div></th>
+				</tr>
+
+
+		</table>
+	</div>
+
+
+
+</body>
+</html>
