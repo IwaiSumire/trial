@@ -8,6 +8,6 @@ public class SecurityController {
 
 	@GetMapping("/login") //ログインが成功すると/loginに来るので
 	public String success() {
-		return "ramens";//url:ramensへいく
+		return "ramens/top";//url:ramensへいく
 	}
 }
