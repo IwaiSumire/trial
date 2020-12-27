@@ -1,4 +1,8 @@
-package com.example.demo.security.controller;
+
+
+/*このクラス不要かも？？
+ *
+ * package com.example.demo.security.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,4 +14,4 @@ public class SecurityController {
 	public String success() {
 		return "ramens/top";//url:ramensへいく
 	}
-}
+}*/
