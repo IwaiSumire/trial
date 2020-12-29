@@ -14,7 +14,7 @@ public class RamenUserDetails implements UserDetails {
 	private User user;
 
 	public RamenUserDetails(User user) {
-		this.user = user;//コンストラクタ？
+		this.user = user;//コンストラクタ
 	}
 
 	@Override
@@ -23,12 +23,14 @@ public class RamenUserDetails implements UserDetails {
 		return null;
 	}
 
+	//自分用に、どの列をパスワードとして使うか変えましょう
 	@Override
 	public String getPassword() {
 		// TODO 自動生成されたメソッド・スタブ
 		return this.user.getPassword();
 	}
 
+	//自分用に、どの列をユーザ名として使うか変えましょう
 	@Override
 	public String getUsername() {
 		// TODO 自動生成されたメソッド・スタブ

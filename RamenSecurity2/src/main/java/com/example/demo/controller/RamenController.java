@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.domain.Ramen;
 import com.example.demo.service.RamenService;
 
+
 @Controller
 @RequestMapping("/ramens")
 public class RamenController {
 
 	@Autowired
 	private RamenService ramenService;
+
 
 	@GetMapping("") //最初の画面
 	public String top(Model model) { //全件取得

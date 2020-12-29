@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Select;
 
 import com.example.demo.security.user.User;
 
-@Mapper
+@Mapper//interfaceであること
 public interface UserMapper {
 
 	//select文。userテーブルから、usernameが一致しているものを検索

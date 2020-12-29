@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class SecurityController {
 
 
-
 	@GetMapping("/login") //loginに来るので
 	public String success() {
 		return "login";//url:ramensへいく

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+</head>
+<body>
+	<div id="wrapper">
+		<h3>ログインしてください</h3>
+
+		<form action="@{/login}" method="post">
+			<table>
+				<tr>
+					<td><label for="username">User:</label></td>
+					<td><input type="text" id="username" name="username"></td>
+					<!-- (4) -->
+				</tr>
+				<tr>
+					<td><label for="password">Password:</label></td>
+					<td><input type="password" id="password" name="password" /></td>
+					<!-- (5) -->
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input name="submit" type="submit" value="Login" /></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+
+
+</body>
+</html>

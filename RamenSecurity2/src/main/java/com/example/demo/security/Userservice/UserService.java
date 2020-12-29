@@ -14,15 +14,15 @@ import com.example.demo.security.user.User;
 @Service
 public class UserService implements UserDetailsService {//UserDetailsServiceをimplementする
 
-	@Autowired//mapperをインスタンス化
+	@Autowired//mapperをインスタンス化。DB接続をするMapperクラスを参照します
 	private UserMapper userMapper;
 
-	@Override
+	@Override//passwordのチェックはSpringSecurityがやってくれるらしい
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		User user = userMapper.findByUsername(username);
+		User user = userMapper.findByUsername(username);//SQL発動。nameが一致したものを取得
 
-		if (user == null) {
+		if (user == null) {//ユーザを取得できなければ
 			throw new UsernameNotFoundException(username + "見つかりません");
 
 		}
