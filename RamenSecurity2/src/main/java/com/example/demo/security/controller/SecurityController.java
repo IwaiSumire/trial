@@ -12,4 +12,5 @@ public class SecurityController {
 	public String success() {
 		return "login";//url:ramensへいく
 	}
+
 }
