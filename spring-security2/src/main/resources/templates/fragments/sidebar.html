@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 </head>
@@ -11,7 +12,8 @@
 			id="accordionSidebar">
 
 			<!-- Sidebar - Brand -->
-			<a class="sidebar-brand d-flex align-items-center justify-content-center"
+			<a
+				class="sidebar-brand d-flex align-items-center justify-content-center"
 				th:href="@{/}">
 				<div class="sidebar-brand-icon rotate-n-15">
 					<i class="fas fa-id-card"></i>
@@ -26,16 +28,14 @@
 			<li class="nav-item active"><a class="nav-link pt-2"
 				th:href="@{/}"> <i class="fas fa-user"></i> <span>ログイン情報</span>
 			</a></li>
-			<!-- こちらは、次（DBのユーザでログインする）で使います
-      <th:block sec:authorize="hasRole('ADMIN')">
-        <li class="nav-item active">
-          <a class="nav-link pt-2" th:href="@{/admin/list}">
-            <i class="fas fa-table"></i>
-            <span>ユーザ一覧</span>
-          </a>
-        </li>
-      </th:block>
-      -->
+
+			<!-- SECタグ→認証された権限をもつ人のみ表示できる。今回はADMINの人のみ表示する -->
+			<th:block sec:authorize="hasRole('ADMIN')">
+				<li class="nav-item active"><a class="nav-link pt-2"
+					th:href="@{/admin/list}"> <i class="fas fa-table"></i> <span>ユーザ一覧</span>
+				</a></li>
+			</th:block>
+
 
 			<!-- Divider -->
 			<hr class="sidebar-divider d-none d-md-block">
