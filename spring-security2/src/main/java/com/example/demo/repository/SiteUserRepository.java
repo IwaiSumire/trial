@@ -13,4 +13,5 @@ public interface SiteUserRepository extends JpaRepository<SiteUser, Long> {
 
 	boolean existsByUsername(String username);//存在するか？
 
+
 }
