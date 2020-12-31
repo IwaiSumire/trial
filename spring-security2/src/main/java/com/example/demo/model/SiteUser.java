@@ -8,13 +8,15 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 /*Entityクラス
 ゲッターセッターの生成
 validationの設定*/
 
-@Data
+@Getter
+@Setter
 @Entity
 public class SiteUser {
 

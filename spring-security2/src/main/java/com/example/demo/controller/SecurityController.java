@@ -40,19 +40,19 @@ public class SecurityController {
 		return "user";//usernameとroleをuser.htmlで使える
 	}
 
-	@GetMapping("admin/list")
+	@GetMapping("/admin/list")//管理者リスト
 	public String showAdminList(Model model) {
 		model.addAttribute("users", userRepository.findAll());//userに全件取得分が入っている
 		return "list";//list.htmlで"users"が使える
 	}
 
-	@GetMapping("/register") //＝登録//login画面から新規登録buttonが押される
-	public String register(@ModelAttribute("user") SiteUser user) {
-		return "register";//register.htmlへ
+	@GetMapping("/register") //＝登録。login画面から新規登録buttonが押される
+	public String register(@ModelAttribute SiteUser user) {
+		return "register";//register.htmlへ画面が移る指示
 	}
 
 	@PostMapping("/register") //registerで登録ボタンを押されたとき userに名前、権限、性別等詰める
-	public String process(@Validated @ModelAttribute("user") SiteUser user, BindingResult result) {
+	public String process(@Validated @ModelAttribute SiteUser user, BindingResult result) {
 
 		//validationにひっかかったら
 		if (result.hasErrors()) {
@@ -69,9 +69,9 @@ public class SecurityController {
 		}
 
 		//userの登録
-		userRepository.save(user);//repositoryクラスに登録
+		userRepository.save(user);//repositoryクラスに登録。これだけでupdate
 
-		return "redirect:login?register";//login.htmlへ戻る
+		return "redirect:/login?register";//login.htmlへ戻る
 	}
 
 }

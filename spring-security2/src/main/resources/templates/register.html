@@ -54,10 +54,11 @@
 										<div class="form-group">
 											<label for="email">性別</label>
 											<div
-												th:each="gender :${T(com.example.demo.util.Type).GENDERS}"><!-- Tはstaticフィールドを呼びさせる -->
+												th:each="gender :${T(com.example.demo.util.Type).GENDERS}">
+												<!-- Tはstaticフィールドを呼びさせる -->
 												<input type="radio" class="ml-2" th:field="*{gender}"
 													th:value="${gender.key}"> <label
-													th:for="${#ids.prev('gender')}" th:text="${gender.value}">
+													th:for="${#.prev('gender')}" th:text="${gender.value}">
 													<!-- ids=繰り返し処理 idとforを紐づけたい
 													id=-->
 												</label>

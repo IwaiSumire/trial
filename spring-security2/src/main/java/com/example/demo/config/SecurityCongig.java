@@ -51,7 +51,7 @@ public class SecurityCongig extends WebSecurityConfigurerAdapter {
 				.logout()//■ログアウトの設定
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//ログアウト時のURL
 				.and()
-				.rememberMe();//ログインしたままにするチャックボックスがつく
+				.rememberMe();//■ログインしたままにするチャックボックスがつく
 	}
 
 	//ユーザの設定
