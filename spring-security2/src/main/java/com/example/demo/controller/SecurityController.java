@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class SecurityController {
 
 	//コンストラクタ生成されている
+
 	private final SiteUserRepository userRepository;
 	private final BCryptPasswordEncoder passwordEncoder;
 
@@ -53,6 +54,7 @@ public class SecurityController {
 
 	@PostMapping("/register") //registerで登録ボタンを押されたとき userに名前、権限、性別等詰める
 	public String process(@Validated @ModelAttribute("user") SiteUser user, BindingResult result) {
+		//ここに("user")を付けないと、SiteUser siteuserを参照してしまうため付ける
 
 		//validationにひっかかったら
 		if (result.hasErrors()) {
@@ -71,7 +73,7 @@ public class SecurityController {
 		//userの登録
 		userRepository.save(user);//repositoryクラスに登録。これだけでupdate
 
-		return "redirect:/login?register";//login.htmlへ戻る
+		return "redirect:/login";//login.htmlへ戻る
 	}
 
 }

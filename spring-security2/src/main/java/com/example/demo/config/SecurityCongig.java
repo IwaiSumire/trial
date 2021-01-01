@@ -24,7 +24,7 @@ public class SecurityCongig extends WebSecurityConfigurerAdapter {
 	//コンストラクタ生成されている
 	private final UserDetailsService userDetailsService;
 
-	@Bean//暗号化用
+	@Bean //暗号化用
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();//エンコード
 	}
@@ -33,14 +33,14 @@ public class SecurityCongig extends WebSecurityConfigurerAdapter {
 	public void configure(WebSecurity web) throws Exception {
 		/*セキュリティの設定を無視するパスを指定
 		CSS配下のものすべてと、web.jarsの配下すべて*/
-		web.ignoring().antMatchers("/js/**","/css/**", "/webjars/**");
+		web.ignoring().antMatchers("/js/**", "/css/**", "/webjars/**");
 	}
 
 	//URLごとの設定
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()//■全体設定
-				.antMatchers("/login","/register").permitAll()//access可能なurl
+				.antMatchers("/login", "/register").permitAll()//access可能なurl
 				.antMatchers("/admin/**").hasRole(Role.ADMIN.name())// /adminはadminユーザだけaccess可能にする
 				.anyRequest().authenticated()//↑以外のURLは全部認証が必要である
 				.and()
@@ -59,23 +59,22 @@ public class SecurityCongig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth
 
-		//userDetailsServieを利用してDBからユーザを参照できるようにする
-		.userDetailsService(userDetailsService)
-		.passwordEncoder(passwordEncoder());
+				//userDetailsServieを利用してDBからユーザを参照できるようにする
+				.userDetailsService(userDetailsService)
+				.passwordEncoder(passwordEncoder());
 
+		/*ユーザ名adminと、userを用意する
+		両方ともパスワードはpasswordにする
+		authoritiesで権限に基づいた設定ができるようになる*/
 
-				/*ユーザ名adminと、userを用意する
-				両方ともパスワードはpasswordにする
-				authoritiesで権限に基づいた設定ができるようになる*/
-
-				/*.inMemoryAuthentication()
-				.withUser("admin")//管理者名
-				.password(passwordEncoder().encode("password"))
-				.authorities("ROLE_ADMIN")//管理者
-				.and()
-				.withUser("user")//ユーザ名
-				.password(passwordEncoder().encode("password"))
-				.authorities("ROLE_USER");//ユーザ
-*/
-		}
+		/*.inMemoryAuthentication()
+		.withUser("admin")//管理者名
+		.password(passwordEncoder().encode("password"))
+		.authorities("ROLE_ADMIN")//管理者
+		.and()
+		.withUser("user")//ユーザ名
+		.password(passwordEncoder().encode("password"))
+		.authorities("ROLE_USER");//ユーザ
+		*/
+	}
 }
