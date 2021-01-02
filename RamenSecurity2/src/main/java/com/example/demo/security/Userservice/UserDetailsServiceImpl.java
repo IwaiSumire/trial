@@ -12,7 +12,7 @@ import com.example.demo.security.user.User;
 
 /*るUserDetailsServiceインターフェイスをの実装クラス*/
 @Service
-public class UserService implements UserDetailsService {//UserDetailsServiceをimplementする
+public class UserDetailsServiceImpl implements UserDetailsService {//UserDetailsServiceをimplementする
 
 	@Autowired//mapperをインスタンス化。DB接続をするMapperクラスを参照します
 	private UserMapper userMapper;
@@ -27,6 +27,12 @@ public class UserService implements UserDetailsService {//UserDetailsServiceをi
 
 		}
 		return new RamenUserDetails(user);
+
+	}
+	public User RamenUserDetails(User user) {
+
+
+		return user;
 
 	}
 

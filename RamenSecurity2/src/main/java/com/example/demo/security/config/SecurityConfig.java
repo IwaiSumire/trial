@@ -11,6 +11,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
 /*@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)　←エラーでる*/
@@ -42,21 +45,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()//ログインの設定
 				.loginPage("/login")
 				.failureUrl("/login")//ログイン失敗時のurl。
-				.defaultSuccessUrl("/ramens/top", true)//ログインが成功したら/ramensにいく
-				.usernameParameter("username")//htmlのnameと一致させる
-				.passwordParameter("password")//htmlのnameと一致させる
+				.defaultSuccessUrl("/ramens/", true)//ログインが成功したら/ramensにいく
 				.and()
 				.logout()//ログアウトの設定
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//ログアウト時の移行先
-				.logoutSuccessUrl("/login")// ログアウト時に削除するクッキー名
-				.deleteCookies("JSESSIONID")// ログアウト時のセッション破棄を有効化
-				.invalidateHttpSession(true).permitAll()//ログアウトしたらsessionを無効にする
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//ログアウトページ
 				.and()
 				.rememberMe();//Remember-Meを有効化チェックボックスができる
 
 	}
 
-	@Autowired//認証方法の実装の設定を行う
+	@Override//認証方法の実装の設定を行う
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth
