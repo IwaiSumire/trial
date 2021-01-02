@@ -25,6 +25,7 @@ public class RamenController {
 	private RamenService ramenService;
 
 
+
 	@GetMapping("") //最初の画面
 	public String top(Model model) { //全件取得
 		model.addAttribute("ramen", ramenService.selectAll());
