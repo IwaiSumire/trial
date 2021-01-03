@@ -1,5 +1,7 @@
 package com.example.demo.model;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -8,8 +10,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import org.springframework.security.core.GrantedAuthority;
+
 import com.example.demo.validator.UniqueLogin;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,9 +22,9 @@ import lombok.Setter;
 ゲッターセッターの生成
 validationの設定*/
 
-@Getter
 @Setter
 @Entity
+@Data
 public class SiteUser {
 
 	@Id
@@ -41,5 +46,6 @@ public class SiteUser {
 	private boolean admin;
 	private String role;
 	private boolean active = true;
+
 
 }

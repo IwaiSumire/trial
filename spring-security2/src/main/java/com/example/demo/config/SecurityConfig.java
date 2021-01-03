@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor //コンストラクタ生成
-public class SecurityCongig extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	//コンストラクタ生成されている
 	private final UserDetailsService userDetailsService;

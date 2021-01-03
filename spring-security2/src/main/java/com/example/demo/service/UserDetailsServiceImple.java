@@ -30,25 +30,29 @@ public class UserDetailsServiceImple implements UserDetailsService {
 	@Override//loadUserByUsernameでユーザを特定
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		//findByUsernameでrepositoryの中にあったらusernameをuserに入れる
+		//findByUsernameでrepositoryの中にあったらuserに入れる
 		SiteUser user = userRepository.findByUsername(username);
 
 		if (user == null) {//見つからなかった場合
 			throw new UsernameNotFoundException(username + "見つかりません");
 		}
 
-		return createUserDetails(user);
+		//GrantedAuthorityはROLE_ADMINやUSERなど、頭にROLE_を付けた文字を渡す
+				Set<GrantedAuthority> grantedAuthories = new HashSet<>();
+				grantedAuthories.add(new SimpleGrantedAuthority(user.getRole()));
+
+		return new User(user.getUsername(), user.getPassword(), grantedAuthories);
 	}
 
 	/*	このUserは標準で備わっているの。
 		今回はROLE_に文字を足さないといけなかったけど、そうじゃなければ
 		↑のpublic UserDetails loadUserByUsernameでreturn new User(user.getUsername(), user.getPassword(), user.getRole());*/
 
-	public User createUserDetails(SiteUser user) {
+	/*public User createUserDetails(SiteUser user) {
 		//GrantedAuthorityはROLE_ADMINやUSERなど、頭にROLE_を付けた文字を渡す
 		Set<GrantedAuthority> grantedAuthories = new HashSet<>();
 		grantedAuthories.add(new SimpleGrantedAuthority("ROLE_" + user.getRole()));
 
 		return new User(user.getUsername(), user.getPassword(), grantedAuthories);
-	}
+	}*/
 }

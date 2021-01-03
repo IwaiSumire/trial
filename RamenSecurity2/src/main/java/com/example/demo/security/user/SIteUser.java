@@ -10,7 +10,7 @@ import nonapi.io.github.classgraph.json.Id;
 /*ユーザ情報を保持するクラス
  * Entityクラス*/
 @Data
-public class User {
+public class SIteUser {
 
 	@Id
 	private Long userId;
@@ -23,4 +23,7 @@ public class User {
 	@NotBlank
 	private String password;
 
-}
+	private String role;
+	}
+
+
