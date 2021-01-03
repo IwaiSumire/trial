@@ -7,61 +7,53 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-//@Controllerこのクラスがコントローラーであることを宣言
-//これを宣言しておくと、DIが利用できるようになる
 @Controller
 public class HelloController {
 
-	//@Autowiredは自動的にDIする
-	@Autowired
-	private HelloService helloService;
+    @Autowired
+    private HelloService helloService;
 
-	//@GetMappingはアノテーションをメソッド(getHello)につけるとHTTPRequestのGETメソッドを処理できるようになる
-	//localhost: 8080/ helloへGETRequest
+    /**
+     * GET用の処理.
+     */
+    @GetMapping("/hello")
+    public String getHello() {
 
-	@GetMapping("/hello") 
-	public String getHello() {
-		return "hello"; //このhelloはhello.htmlのこと
-	}
+        // hello.htmlに画面遷移
+        return "hello";
+    }
 
-	//@PostMappingはPOSTメソッドで送られてきた場合の処理ができるようになる
-	@PostMapping("/hello")
-	public String postRequest(@RequestParam("text1") String str, Model model) {
-		//		@RequestParamはメソッドの引数に付けると画面からの入力内容を受け取ることができる
-		//		このtext1とは、今回だとフォームのテキストエリアに付けた名前になる
-		model.addAttribute("sample", str);
-		//		model.addAttributeは、キーと値をセットにしておく。
-		//		今回でいうと、sampleがキーで、値がテキストの入力値になる
-		return "helloResponse";
-		//		helloResponse.htmlを表示する
-	}
+    /**
+     * POST用の処理.
+     */
+    @PostMapping("/hello")
+    public String postRequest(@RequestParam("text1") String str, Model model) {
 
-	//text2はhello.htmlで入力されたテキスト名
-	//	@RequestParamを使うことで、画面からの入力を受け取ることができる
-	//	text2に１を入力→String str=1 になる。
-	@PostMapping("/hello/db")
-	public String postDbRequest(@RequestParam("text2") String str, Model model) {
+        // 画面から受け取った文字列をModelに登録
+        model.addAttribute("sample", str);
 
-		//入力された数字をintに変換する
-		int id = Integer.parseInt(str);
+        // helloResponse.htmlに画面遷移
+        return "helloResponse";
+    }
 
-		//findOne(id)→入力されたidをHelloServiceにもっていく
-		//コントローラー→サービスへいく処理
-		//helloServiceはインスタンス化されたやつ
-		
-		//Employee employeeは箱
-		//Employeeに何入れるの？入力したidに紐づいたDBの情報
-		Employee employee = helloService.findOne(id);
+    /**
+     * POST用の処理（DB）.
+     */
+    @PostMapping("/hello/db")
+    public String postDbRequest(@RequestParam("text2") String str, Model model) {
 
-//		ここから↓は結果が返ってきたときの処理
-		//model.addAttributeは、キーと値をセットにしておく。
-		//get●●() employeeで@Dataしたので勝手に作られたgetter
-		
-		model.addAttribute("id", employee.getEmployeeId());
-		model.addAttribute("name", employee.getEmployeeName());
-		model.addAttribute("age", employee.getEmployeeAge());
+        // Stringからint型に変換
+        int id = Integer.parseInt(str);
 
-		return "helloResponseDB"; //helloResponseDB.htmlへ画面がいく
-	}
+        // １件検索
+        Employee employee = helloService.findOne(id);
 
+        // 検索結果をModelに登録
+        model.addAttribute("id", employee.getEmployeeId());
+        model.addAttribute("name", employee.getEmployeeName());
+        model.addAttribute("age", employee.getAge());
+
+        // helloResponseDB.htmlに画面遷移
+        return "helloResponseDB";
+    }
 }

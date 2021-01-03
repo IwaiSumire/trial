@@ -1,7 +1,5 @@
 package com.example.demo.model;
 
-import java.util.Collection;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,12 +8,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-import org.springframework.security.core.GrantedAuthority;
-
 import com.example.demo.validator.UniqueLogin;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.Setter;
 
 /*Entityクラス

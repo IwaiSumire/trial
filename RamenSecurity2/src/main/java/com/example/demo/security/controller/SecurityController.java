@@ -14,4 +14,5 @@ public class SecurityController {
 		return "login";//url:ramensへいく
 	}
 
+
 }

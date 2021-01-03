@@ -45,7 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()//ログインの設定
 				.loginPage("/login")
 				.failureUrl("/login")//ログイン失敗時のurl。
-				.defaultSuccessUrl("/ramens", true)//ログインが成功したら/ramensにいく
+				.defaultSuccessUrl("/ramens/top", true)//ログインが成功したら/ramensにいく
 				.and()
 				.logout()//ログアウトの設定
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//ログアウトページ
@@ -59,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		auth
 		.userDetailsService(userDetailsService)//userDetailsServiceを使って、DBからユーザを参照する
+		
 		.passwordEncoder(passwordEncoder());
 
 	}

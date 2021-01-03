@@ -12,7 +12,7 @@ public interface SiteUserRepository extends JpaRepository<SiteUser, Long> {
 
 	SiteUser findByUsername(String username);//名前を１件取得
 
-	boolean existsByUsername(String username);//存在するか？
+	//boolean existsByUsername(String username);//存在するか？
 
 
 }

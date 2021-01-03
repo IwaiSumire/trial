@@ -24,6 +24,7 @@ public class SIteUser {
 	private String password;
 
 	private String role;
+
 	}
 
 
