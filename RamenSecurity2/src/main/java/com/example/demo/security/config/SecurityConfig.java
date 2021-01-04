@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,13 +27,19 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
 	 * */
 
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
+		web.ignoring().antMatchers("/css/**");
+	}
+
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
 
 		return new BCryptPasswordEncoder();
 	}
 
-	@Override//urlごとに異なる設定をする
+	@Override //urlごとに異なる設定をする
 	protected void configure(HttpSecurity http) throws Exception {
 
 		/*直リンクの禁止の記述*/
@@ -55,16 +62,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	}
 
-	@Override//認証方法の実装の設定を行う
+	@Override //認証方法の実装の設定を行う
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth
-		.userDetailsService(userDetailsService);//userDetailsServiceを使って、DBからユーザを参照する
+				.userDetailsService(userDetailsService);//userDetailsServiceを使って、DBからユーザを参照する
 
-		//.passwordEncoder((new BCryptPasswordEncoder()));
-
+		//.passwordEncoder((new BCryptPasswordEncoder()));←上で設定してるから不要
 
 	}
-
 
 }

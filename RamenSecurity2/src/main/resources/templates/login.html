@@ -5,31 +5,29 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 <body>
-	<div id="wrapper">
-		<h3>ログインしてください</h3>
 
-		<form id="loginForm" method="post" th:action="@{/login}">
-			<table>
-				<tr>
-					<td><label for="username">User:</label></td>
-					<td><input type="text" id="username" name="username"></td>
-					<!-- (4) -->
-				</tr>
-				<tr>
-					<td><label for="password">Password:</label></td>
-					<td><input type="password" id="password" name="password" /></td>
-					<!-- (5) -->
-				</tr>
-				<tr>
+	<div class="container">
+		<div class="wrapper">
+			<form th:action="@{/login}" method="post" name="Login_Form"
+				class="form-signin">
+				<h3 class="form-signin-heading">Welcome! Please Sign In</h3>
+				<hr class="colorgraph">
+				<br> <input type="text" class="form-control" name="username"
+					placeholder="username" /> <input type="password"
+					class="form-control" name="password" placeholder="password" />
 
-					<td>&nbsp;</td>
-
-					<td><input name="submit" type="submit" value="Login" /></td>
-				</tr>
-			</table>
-		</form>
+				<button class="btn btn-lg btn-primary btn-block" name="Submit"
+					value="Login" type="Submit">Login</button>
+			</form>
+		</div>
 	</div>
 </body>
 
