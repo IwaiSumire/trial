@@ -28,6 +28,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
+
 		return new BCryptPasswordEncoder();
 	}
 
@@ -45,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin()//ログインの設定
 				.loginPage("/login")
 				.failureUrl("/login")//ログイン失敗時のurl。
-				.defaultSuccessUrl("/ramens/top", true)//ログインが成功したら/ramensにいく
+				.defaultSuccessUrl("/ramens", true)//ログインが成功したら/ramensにいく
 				.and()
 				.logout()//ログアウトの設定
 				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))//ログアウトページ
@@ -58,9 +59,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth
-		.userDetailsService(userDetailsService)//userDetailsServiceを使って、DBからユーザを参照する
-		
-		.passwordEncoder(passwordEncoder());
+		.userDetailsService(userDetailsService);//userDetailsServiceを使って、DBからユーザを参照する
+
+		//.passwordEncoder((new BCryptPasswordEncoder()));
+
 
 	}
 

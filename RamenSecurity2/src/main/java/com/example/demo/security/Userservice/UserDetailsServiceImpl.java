@@ -33,9 +33,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 		grantedAuthories.add(new SimpleGrantedAuthority(user.getRole()));
 
 		*/
+
 		return userMapper.findByUsername(username);
 
+		//MyUser myUser = new MyUser();
 
+		//myUser.setUsername("aaaa.docomo");
+		//myUser.setPassword("$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O");
+
+
+		//return myUser;
 
 	}
 
