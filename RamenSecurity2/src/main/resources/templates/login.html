@@ -18,7 +18,7 @@
 		<div class="wrapper">
 			<form th:action="@{/login}" method="post" name="Login_Form"
 				class="form-signin">
-				<h3 class="form-signin-heading">Welcome! Please Sign In</h3>
+				<h3 class="form-signin-heading">ログインしてください</h3>
 				<hr class="colorgraph">
 				<br> <input type="text" class="form-control" name="username"
 					placeholder="username" /> <input type="password"
@@ -30,7 +30,9 @@
 			</form>
 			<br>
 			<form style="text-align:center;">
-			<a href="newUser">新規ユーザ登録</a>
+			<div>登録がお済でない方はこちら</div>
+			<a href="newUser" type="button" class="btn btn-danger">新規ユーザ登録</a>
+
 			</form>
 		</div>
 	</div>
