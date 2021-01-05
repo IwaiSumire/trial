@@ -6,19 +6,21 @@
 
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 	<header th:frame="header">
 		<nav class="navbar navbar-light bg-primary md-n5 text-left">
 			<form action="">
-				<br>
-				<a type="button" class="btn btn-outline-light"
-					th:href="@{/ramens}">Ramen</a>
-				<a type="button" class="btn btn-outline-light"
-					th:href="@{/logout}">ログアウト</a>
-
-				<a>ログインユーザ：</a> <a class="border border-secondary" style="padding:10px;" th:text="*{username}"></a><a>様</a>
+				<br> <a type="button" class="btn btn-outline-light"
+					th:href="@{/ramens}">TOP</a> <a type="button"
+					class="btn btn-outline-light" th:href="@{/logout}">ログアウト</a> <span  class="user">
+					<span> <span>  ★ログインユーザ：</span> <span
+						class="border border-secondary" style="padding: 10px;"
+						th:text="*{username}"></span><span>様</span>
+				</span>
+				</span>
 			</form>
 
 			<br>

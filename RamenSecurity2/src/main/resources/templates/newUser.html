@@ -16,22 +16,21 @@
 
 	<div class="container">
 		<div class="wrapper">
-			<form th:action="@{/login}" method="post" name="Login_Form"
-				class="form-signin">
-				<h3 class="form-signin-heading">Welcome! Please Sign In</h3>
+			<form th:action="@{/newUser}" method="post" name="Login_Form"
+				class="form-signin" th:object="${user}">
+				<h3 class="form-signin-heading">ユーザ登録</h3>
+				<h5 class="form-signin-heading">usernameはemailアドレス</h5>
 				<hr class="colorgraph">
 				<br> <input type="text" class="form-control" name="username"
-					placeholder="username" /> <input type="password"
-					class="form-control" name="password" placeholder="password" />
+					th:field="*{username}"/> <input type="password"
+					class="form-control" name="password" th:field="*{password}" />
 
 				<button class="btn btn-lg btn-primary btn-block" name="Submit"
-					value="Login" type="Submit">Login</button>
+					value="Login" type="Submit">新規登録</button>
 
 			</form>
 			<br>
-			<form style="text-align:center;">
-			<a href="newUser">新規ユーザ登録</a>
-			</form>
+
 		</div>
 	</div>
 </body>

@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUser implements UserDetails {
 
+
 	private String password;
 
 	private String username;

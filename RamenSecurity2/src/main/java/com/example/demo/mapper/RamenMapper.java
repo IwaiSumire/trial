@@ -32,4 +32,5 @@ public interface RamenMapper {
 	@Delete("delete from ramen where id = #{id}")
 	void delete(Long id);
 
+
 }

@@ -17,17 +17,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.domain.Ramen;
 import com.example.demo.service.RamenService;
 
-
 @Controller
 @RequestMapping("/ramens")
 public class RamenController {
 
-
 	@Autowired
 	private RamenService ramenService;
-
-
-
 
 	@GetMapping("") //最初の画面
 	public String top(Authentication loginUser, Model model) { //全件取得
@@ -37,7 +32,8 @@ public class RamenController {
 	}
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
-	public String newRamen(@ModelAttribute Ramen ramen) {//objectの値を受け取る必要がある
+	public String newRamen(Authentication loginUser, Model model, @ModelAttribute Ramen ramen) {//objectの値を受け取る必要がある
+		model.addAttribute("username", loginUser.getName());
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
 
@@ -47,20 +43,21 @@ public class RamenController {
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
 		}
-
 		ramenService.insert(ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
 
 	@GetMapping("{id}") //1件分のデータの中身を確認する
-	public String show(@PathVariable Long id, Model model) {
+	public String show(Authentication loginUser, @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.selectOne(id));
+		model.addAttribute("username", loginUser.getName());
 		return "ramens/show";
 	}
 
 	@GetMapping("{id}/change") //編集画面に行くまでの画面
-	public String change(@PathVariable Long id, Model model) {
+	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.selectOne(id));
+		model.addAttribute("username", loginUser.getName());
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
