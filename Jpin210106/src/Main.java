@@ -2,19 +2,28 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		int[] array = new int[3];
+		Item item = new Item("ばなな", 100);
+		Item item2 = new Item("りんご", 300);
 
-		array[0] = 10;
-		array[1] = 20;
-		array[2] = 30;
+		Order order = new Order(item, 3);
+		Order order2 = new Order(item2, 5);
 
-		int[] array2 = array;
+		ShoppingCart cart = new ShoppingCart();
 
-		array2[0] = 100;
+		cart.add(order);
+		cart.add(order2);
 
-		for (int i : array) {
-			System.out.println(i);
-		}
+		int total = cart.getTotal();
+
+		System.out.println(item.getName());
+		System.out.println(item.getPrice());
+		System.out.println(order.getQty());
+
+		System.out.println(item2.getName());
+		System.out.println(item2.getPrice());
+		System.out.println(order2.getQty());
+
+		System.out.println("合計" + total);
 
 	}
 
