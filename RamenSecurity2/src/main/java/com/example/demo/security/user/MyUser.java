@@ -2,14 +2,22 @@ package com.example.demo.security.user;
 
 import java.util.Collection;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class MyUser implements UserDetails {
 
 
+	@NotBlank(message = "入力してください")
+	@Size(min = 5, max = 20,message = "5～20文字以内で入力してください")
 	private String password;
 
+	@NotBlank(message = "入力してください")
+	@Email(message = "アドレス形式で入力してください")
 	private String username;
 
 	public void setPassword(String password) {

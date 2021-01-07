@@ -26,6 +26,8 @@ public class RamenController {
 
 	@GetMapping("") //最初の画面
 	public String top(Authentication loginUser, Model model) { //全件取得
+
+
 		model.addAttribute("ramen", ramenService.selectAll());
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/top";//topでramen(全件入っている)を使える

@@ -21,13 +21,17 @@
 				<h3 class="form-signin-heading">ユーザ登録</h3>
 				<h5 class="form-signin-heading">usernameはemailアドレス</h5>
 				<hr class="colorgraph">
-				<br> <input type="text" class="form-control" name="username"
-					th:field="*{username}"/> <input type="password"
+				<br> <span>username</span>
+				<input type="text" class="form-control" name="username"
+					th:field="*{username}" />
+					<div th:if="${#fields.hasErrors('username')}"  th:errors="*{username}"></div>
+					 <span>password</span>
+					 <input type="password"
 					class="form-control" name="password" th:field="*{password}" />
+					<div th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
 
 				<button class="btn btn-lg btn-primary btn-block" name="Submit"
 					value="Login" type="Submit">新規登録</button>
-
 			</form>
 			<br>
 

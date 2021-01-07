@@ -4,6 +4,8 @@ package com.example.demo.security.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,20 +26,26 @@ public class SecurityController {
 
 	@GetMapping("/login") //loginに来るので
 	public String success() {
-		return "login";//url:ramensへいく
+		return "login";
 	}
 
 	@GetMapping("/newUser")
 	public String newUser(@ModelAttribute("user") MyUser user) {
-		return "/newUser";
+		return "newUser";
 	}
 
 	@PostMapping("/newUser")
-	public String newUserOk(@ModelAttribute("user") MyUser user) {
+	public String newUserOk(@Validated @ModelAttribute("user") MyUser user, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "newUser";
+		}
 
 		user.setPassword(passwordEncoder.encode(user.getPassword()));
 
 		userService.insert(user);
+
+
 
 		return "redirect:/login";
 	}
