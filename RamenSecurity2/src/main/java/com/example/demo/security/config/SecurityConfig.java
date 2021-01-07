@@ -52,7 +52,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.and()
 				.formLogin()//ログインの設定
 				.loginPage("/login")
-				.failureUrl("/login")//ログイン失敗時のurl。
+				//.failureUrl("/login")//ログイン失敗時のurl。デフォルトでerror?になってる
 				.defaultSuccessUrl("/ramens", true)//ログインが成功したら/ramensにいく
 				.and()
 				.logout()//ログアウトの設定
