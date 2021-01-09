@@ -20,6 +20,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 
 	@Override //passwordのチェックはSpringSecurityがやってくれるらしい
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+
+
 		//loadUserByUsernameは実装が必要
 
 		/*SIteUser user = userMapper.findByUsername(username);//SQL発動。nameが一致したものを取得
@@ -35,13 +37,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 		}
 		*/
 
-		/*【不要】try {
+		try {
 
-		} catch (Exception e) {
+		} catch (UsernameNotFoundException e) {
 			throw new UsernameNotFoundException("It can not be acquired User");
 		} if (username == null) {
 			throw new UsernameNotFoundException("User not found for login id: " + username);
-		}*/
+		}
 
 		return userMapper.findByUsername(username);
 
@@ -49,7 +51,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 
 		//myUser.setUsername("aaaa.docomo");
 		//myUser.setPassword("$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O");
-
 
 		//return myUser;
 

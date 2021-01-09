@@ -18,6 +18,8 @@ import com.example.demo.security.user.MyUser;
 @Transactional
 class UserDetailsServiceImplTest {
 
+	private static final String UsernameNotFoundException = null;
+
 	@Autowired //仮で保存する用にmapper使う
 	UserMapper userMapper;
 
