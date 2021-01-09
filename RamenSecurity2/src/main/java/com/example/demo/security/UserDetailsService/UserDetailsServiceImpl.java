@@ -32,11 +32,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 		Set<GrantedAuthority> grantedAuthories = new HashSet<>();
 		grantedAuthories.add(new SimpleGrantedAuthority(user.getRole()));
 
-		*/
-		if (username == null) {//ユーザを取得できなければ
-			throw new UsernameNotFoundException(username + "見つかりません");//エラー
-
 		}
+		*/
+
+		/*【不要】try {
+
+		} catch (Exception e) {
+			throw new UsernameNotFoundException("It can not be acquired User");
+		} if (username == null) {
+			throw new UsernameNotFoundException("User not found for login id: " + username);
+		}*/
 
 		return userMapper.findByUsername(username);
 
