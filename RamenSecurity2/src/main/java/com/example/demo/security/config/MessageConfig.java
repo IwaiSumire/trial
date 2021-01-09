@@ -1,4 +1,4 @@
-package com.example.demo.security.config;
+/*package com.example.demo.security.config;
 
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -17,4 +17,5 @@ public class MessageConfig {
 		source.addBasenames("classpath:org/springframework/security/messages");
 		return source;
 	}
-}
+
+*/
