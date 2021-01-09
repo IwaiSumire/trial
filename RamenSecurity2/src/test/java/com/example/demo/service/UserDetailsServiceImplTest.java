@@ -47,7 +47,7 @@ class UserDetailsServiceImplTest {
 	@DisplayName("ユーザがDBに登録がなかった時、例外をスローします")
 	void username_db_NG() {
 		//		例外をスローするかの検証はassertThrowsを使用する
-		assertThrows(UsernameNotFoundException.class, () -> service.loadUserByUsername("aiueo@example.com"));
+		assertThrows(UsernameNotFoundException.class, () -> service.loadUserByUsername("hogehage@example.com"));
 	}
 
 }
