@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="wrapper">
+			<form th:action="@{/login}" method="post" name="Login_Form"
+				class="form-signin" th:object="${user}">
+				<h3 class="form-signin-heading">ログインしてください</h3>
+
+				<!-- Login -->
+
+				<div class="alert alert-danger" th:if="${param.error}">
+					<small>ユーザ名またはパスワードが正しくありません</small>
+				</div>
+				<div class="alert alert-success" th:if="${param.newUser}">
+					<small>ユーザを新規登録しました</small>
+				</div>
+				<div class="alert alert-success" th:if="${param.logout}">
+					<small>ログアウトしました</small>
+				</div>
+
+				<hr class="colorgraph">
+				<br> <input type="text" class="form-control" name="username"
+					placeholder="username" /> <input type="password"
+					class="form-control" name="password" placeholder="password" />
+
+
+				<button class="btn btn-lg btn-primary btn-block" name="Submit"
+					value="Login" type="Submit">Login</button>
+
+			</form>
+			<br>
+			<form style="text-align: center;">
+				<div>登録がお済でない方はこちら</div>
+				<a href="newUser" type="button" class="btn btn-danger">新規ユーザ登録</a>
+
+			</form>
+		</div>
+	</div>
+</body>
+
+
+</body>
+</html>

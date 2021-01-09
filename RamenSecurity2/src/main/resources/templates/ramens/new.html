@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head th:replace="head :: header">
+<meta charset="UTF-8">
+<title>新規ラーメン</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+	<h2>新規ラーメン作成</h2>
+
+	<form method="post" th:action="@{/ramens/new}" th:object="${ramen}">
+		<ul>
+			<li><label>お店</label> <br>
+
+			<input type="text" id="shop" name="shop" th:field="*{shop}"/><!-- fieldはramen.shopとかにしてHTMLで使える -->
+				<div th:if="${#fields.hasErrors('shop')}" th:errors="*{shop}">エラー</div>
+
+			</li>
+
+
+			<li><label>種類</label> <br>
+
+			<input type="text" name="type" th:field="*{type}">
+			<div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">エラー</div>
+
+			</li>
+			<li><label>評価</label> <br> <select name="star" th:field="*{star}">
+					<option value="★">★</option>
+					<option value="★★">★★</option>
+					<option value="★★★">★★★</option>
+					<option value="★★★★">★★★★</option>
+					<option value="★★★★★">★★★★★</option>
+			</select></li>
+		</ul>
+		<button class="btn btn-primary">新規作成</button>
+	</form>
+
+</body>
+</html>

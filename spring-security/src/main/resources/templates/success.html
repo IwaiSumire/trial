@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>ログイン成功画面</title>
+</head>
+<body>
+
+	<h1>ログインできました！！</h1>
+	<a th:href="@{/logout}">ログアウトの確認メッセージへ</a><!-- こっちは確認あり -->
+	<br>
+	<form th:action="@{/logout}" method="post">
+	<!-- postだとそのままログアウト、getだと確認メッセージがでてからログアウト -->
+		<button>ログアウトする</button>
+
+	</form>
+
+</body>
+</html>

@@ -20,6 +20,11 @@ import com.example.demo.service.RamenService;
 @RequestMapping("/ramens")
 public class RamenController {
 
+	@GetMapping("/login") //loginに来るので
+	public String success() {
+		return "login";//url:ramensへいく
+	}
+
 	@Autowired
 	private RamenService ramenService;
 

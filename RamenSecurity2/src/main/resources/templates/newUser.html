@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>login</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/style.css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+	<div class="container">
+		<div class="wrapper">
+			<form th:action="@{/newUser}" method="post" name="Login_Form"
+				class="form-signin" th:object="${user}">
+				<h3 class="form-signin-heading">ユーザ登録</h3>
+				<h5 class="form-signin-heading">usernameはemailアドレス</h5>
+				<hr class="colorgraph">
+				<br> <span>username</span>
+				<input type="text" class="form-control" name="username"
+					th:field="*{username}" />
+					<div th:if="${#fields.hasErrors('username')}"  th:errors="*{username}"></div>
+					 <span>password</span>
+					 <input type="password"
+					class="form-control" name="password" th:field="*{password}" />
+					<div th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
+
+				<button class="btn btn-lg btn-primary btn-block" name="Submit"
+					value="Login" type="Submit">新規登録</button>
+			</form>
+			<br>
+
+		</div>
+	</div>
+</body>
+
+
+</body>
+</html>
