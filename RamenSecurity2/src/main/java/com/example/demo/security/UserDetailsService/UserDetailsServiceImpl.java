@@ -33,6 +33,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 		grantedAuthories.add(new SimpleGrantedAuthority(user.getRole()));
 
 		*/
+		if (username == null) {//ユーザを取得できなければ
+			throw new UsernameNotFoundException(username + "見つかりません");//エラー
+
+		}
 
 		return userMapper.findByUsername(username);
 

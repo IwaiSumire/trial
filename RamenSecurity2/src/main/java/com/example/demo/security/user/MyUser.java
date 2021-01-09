@@ -14,9 +14,8 @@ import com.example.demo.validator.UniqueLogin;
 public class MyUser implements UserDetails {
 
 
-	@NotBlank(message = "入力してください")
+	@NotBlank
 	@Size(min = 5, max = 20,message = "5～20文字以内で入力してください")
-
 	private String password;
 
 	@NotBlank(message = "入力してください")
