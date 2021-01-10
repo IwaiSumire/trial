@@ -18,7 +18,6 @@ public interface UserMapper {
 	@Options(useGeneratedKeys = true) //勝手に登録
 	void insert(MyUser user);
 
-	@Select("select username from user where username = #{username}")
-	MyUser selectOne(MyUser user);
+
 
 }

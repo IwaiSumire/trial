@@ -6,7 +6,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.test.context.jdbc.Sql;
@@ -26,37 +25,30 @@ class UserDetailsServiceImplTest {
 	@Autowired //UserDetaislServiceImplのテスト
 	UserDetailsServiceImpl service;
 
-	@Autowired
-	MyUser user;
-
-
-	Authentication loginUser;
-
 	@Test
 	@DisplayName("ユーザ名がDBに登録してあった場合、ユーザ詳細を取得することを期待します")
-	@Sql("/testdata.sql")
+	//@Sql("/testdata.sql")
 	void username_db_OK() {
 
 		//■準備段階
-		/*MyUser myUser = new MyUser();
+		MyUser myUser = new MyUser();
 
 		myUser.setUsername("hoge@example.com");//仮で登録
 		myUser.setPassword("$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O");//仮で登録
 
 		userMapper.insert(myUser);//仮で登録
-		*/
+
 		//■実行 hoge@gmail.comで実行している
+
+		//MyUser user = userService.selectOne("hoge@example.com");
+
 		UserDetails actual = service.loadUserByUsername("hoge@example.com");//DBの中にあるか調べるメソッド実行
 
 		//仮で登録したhoge@gmail.comと、実行したhoge@gmail.comは一致していますか？
 
-		//MyUser aaa = userMapper.selectOne(user);
-
-		assertEquals(loginUser.getName(), actual.getUsername());
+		assertEquals(myUser.getUsername(), actual.getUsername());
 
 	}
-
-
 
 	@Test
 	@DisplayName("ユーザがDBに登録がなかった時、例外をスローします")
