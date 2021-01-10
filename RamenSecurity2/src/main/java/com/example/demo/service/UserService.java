@@ -18,4 +18,9 @@ public class UserService {
 		userMapper.insert(user);
 	}
 
+	@Transactional
+	public void selectOne(MyUser user) {
+		userMapper.selectOne(user);
+	}
+
 }
