@@ -17,6 +17,12 @@ public class UserService {
 	public void insert(MyUser user) {
 		userMapper.insert(user);
 	}
+	
+	@Transactional
+	public String findByUsername(String username) {
+		userMapper.findByUsername(username);
+		return username;
+	}
 
 
 
