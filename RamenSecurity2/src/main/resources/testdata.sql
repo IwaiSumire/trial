@@ -1,2 +1,2 @@
-insert into user(userId,username,password)
-value(100,'hoge@example.com','$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O');
+insert into user(username,password)
+value('hoge@example.com','$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O');
