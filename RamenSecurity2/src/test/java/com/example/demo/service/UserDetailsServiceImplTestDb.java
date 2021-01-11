@@ -12,14 +12,15 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.security.UserDetailsService.UserDetailsServiceImpl;
-import com.example.demo.security.mapper.UserMapper;
+import com.example.demo.security.user.MyUser;
+import com.example.demo.testmapper.UserMapperTest;
 
 @SpringBootTest
 @Transactional
 class UserDetailsServiceImplTestDb {
 
 	@Autowired //仮で保存する用にmapper使う
-	UserMapper userMapper;
+	UserMapperTest userMappertest;
 
 	@Autowired //UserDetaislServiceImplのテスト
 	UserDetailsServiceImpl service;
@@ -33,7 +34,7 @@ class UserDetailsServiceImplTestDb {
 	void username_db_OK() {
 
 		//■準備段階 これって@Beforにした方がいいの？
-		//MyUser myUser = new MyUser();
+		MyUser myUser = new MyUser();
 
 		//myUser.setUsername("hoge@example.com");//仮で登録
 		//myUser.setPassword("$2a$08$DTjs9boNV2HQXh6LwWmHquZJPuzpRWnbrYC3ZHhwSpIAVPdkKUX9O");//仮で登録
@@ -45,12 +46,14 @@ class UserDetailsServiceImplTestDb {
 		//MyUser user = userService.selectOne("hoge@example.com");
 
 		//usernameの中に、
-		String username = userService.findByUsername("hoge@example.com");
+		//UserDetails actual = userMappertest.findByUsername("hoge@example.com");
 
 		//DBの中で一致しているものがあるか見る
-		UserDetails actual = service.loadUserByUsername("hoge@example.com");
+		UserDetails actual = userMappertest.findByUsername("hoge@example.com");
 
-		assertEquals(username, actual.getUsername());
+		assertEquals("hoge@example.com", actual.getUsername());
+
+		//assertEquals(myUser.getUsername(), actual.getUsername());
 
 	}
 
