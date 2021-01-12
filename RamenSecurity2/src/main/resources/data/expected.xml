@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<member userId="1" username="hoge@example.com" password="password" />
+</dataset>
