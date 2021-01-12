@@ -1,8 +1,7 @@
 package com.example.demo.service;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.File;
+import java.sql.Connection;
 
 import org.dbunit.Assertion;
 import org.dbunit.IDatabaseTester;
@@ -14,16 +13,14 @@ import org.dbunit.dataset.xml.FlatXmlDataSetBuilder;
 import org.dbunit.operation.DatabaseOperation;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.test.context.jdbc.Sql;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.security.UserDetailsService.UserDetailsServiceImpl;
 import com.example.demo.testmapper.UserMapperTest;
+import com.mysql.cj.xdevapi.Statement;
 
 /*このテストでやりたいことの前提は、
 UserDetailsServiceImpl implements UserDetailsServiceがちゃんと一致するusernameを探せているか？をテストする*/
@@ -68,10 +65,7 @@ class UserDetailsServiceImplTestDb2 {
 	UserService userService;
 
 	@Test
-	@DisplayName("ユーザ名がDBに登録してあった場合、ユーザ詳細を取得することを期待します")
-	//@Sql("/testdata.sql") //このSQLが実行した後の状態でテストが開始されるので、データが１件入っている状態になっている
-	void username_db_OK() {
-
+	public void compareTable() throws Exception {
 		IDataSet databaseDataSet = databaseTester.getConnection().createDataSet();
 		ITable actualTable = databaseDataSet.getTable("member");
 
@@ -79,7 +73,6 @@ class UserDetailsServiceImplTestDb2 {
 		ITable expectedTable = expectedDataSet.getTable("member");
 
 		Assertion.assertEquals(expectedTable, actualTable);
-
 	}
 
 	@Test
@@ -96,13 +89,4 @@ class UserDetailsServiceImplTestDb2 {
 		ITable expectedTable = expectedDataSet.getTable("member");
 
 	}
-
-	@Test
-	@DisplayName("ユーザがDBに登録がなかった時、例外をスローします")
-	@Sql("/testdata.sql")
-	void username_db_NG() {
-		//		例外をスローするかの検証はassertThrowsを使用する
-		assertThrows(UsernameNotFoundException.class, () -> service.loadUserByUsername("hogehage@example.com"));
-	}
-
 }
