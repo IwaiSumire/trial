@@ -22,7 +22,7 @@ public interface RamenMapper {
 	@Select("select * from ramen where id = #{id}")
 	Ramen selectOne(Long id);
 
-	@Insert("insert into ramen (shop, type, star) values (#{shop}, #{type}, #{star})")
+	@Insert("insert into ramen (shop, type, star,day) values (#{shop}, #{type}, #{star},#{day})")
 	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
 
@@ -31,6 +31,8 @@ public interface RamenMapper {
 
 	@Delete("delete from ramen where id = #{id}")
 	void delete(Long id);
+
+
 
 
 }

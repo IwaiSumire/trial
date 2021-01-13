@@ -39,4 +39,6 @@ public class RamenService {
 	public void delete(Long id) {
 		ramenMapper.delete(id);
 	}
+
+
 }
