@@ -22,7 +22,7 @@ public interface RamenMapper {
 	@Select("select * from ramen where id = #{id}")
 	Ramen selectOne(Long id);
 
-	@Insert("insert into ramen (shop, type, star,day) values (#{shop}, #{type}, #{star},#{day})")
+	@Insert("insert into ramen (shop, type, star,day,pic) values (#{shop}, #{type}, #{star},#{day},#{pic})")
 	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
 

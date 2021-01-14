@@ -1,6 +1,5 @@
 package com.example.demo.domain;
 
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
@@ -27,4 +26,5 @@ public class Ramen {
 	//@NotBlank(message = "入力してください")
 	private String day;
 
+	private byte[] pic;
 }

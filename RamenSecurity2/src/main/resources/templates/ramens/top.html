@@ -5,8 +5,18 @@
 <head th:replace="head :: header">
 <meta charset="UTF-8">
 <title>ラーメンリスト</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
+
+
+<script>
+	$(document).ready(function() {
+		$('#fav-table').tablesorter();
+	});
+</script>
+
 </head>
 <body>
 
@@ -23,8 +33,9 @@
 	</div>
 
 
-	<table class="table table-striped" th:if="${ramen.size()}" >
-	<!-- DBのデータがあるとき -->
+	<table id="fav-table" class="table table-striped"
+		th:if="${ramen.size()}">
+		<!-- DBのデータがあるとき -->
 		<!-- データが１以上のとき -->
 		<thead>
 			<tr>
@@ -32,13 +43,11 @@
 				<th>お店</th>
 				<th>種類</th>
 				<th>評価(★)</th>
-				<th></th>
-				<th></th>
-				<th></th>
+
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="ramen:${ramen}" th:object="${ramen}" >
+			<tr th:each="ramen:${ramen}" th:object="${ramen}">
 				<!-- each;DBの情報をすべて出すまで繰り返す -->
 				<td th:text="*{id}"></td>
 				<td th:text="*{shop}"></td>
@@ -50,7 +59,8 @@
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
-					<form th:action="@{/ramens/{id}/delete(id=*{id})}" th:method="delete">
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
+						th:method="delete">
 						<!-- public delete にaccessできる -->
 						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
 						<button class="btn btn-dark">消去</button>

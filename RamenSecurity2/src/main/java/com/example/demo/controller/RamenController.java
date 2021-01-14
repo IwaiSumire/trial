@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.domain.Ramen;
 import com.example.demo.service.RamenService;
@@ -38,11 +39,14 @@ public class RamenController {
 	}
 
 	@PostMapping("new") //formから作成された画面
-	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result) {
+	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result, MultipartFile file) {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
 		}
+
+
+
 		ramenService.insert(ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
@@ -52,8 +56,6 @@ public class RamenController {
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
 
-
-
 		return "ramens/show";
 	}
 
@@ -61,6 +63,8 @@ public class RamenController {
 	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
+
+
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 

@@ -40,5 +40,4 @@ public class RamenService {
 		ramenMapper.delete(id);
 	}
 
-
 }

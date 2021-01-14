@@ -4,5 +4,6 @@ CREATE TABLE IF NOT EXISTS ramen (
   type varchar(255) DEFAULT NULL,
   star varchar(255) DEFAULT NULL,
   day DATE,
+  pic BLOB,
   PRIMARY KEY (id)
 );
