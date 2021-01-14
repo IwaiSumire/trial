@@ -14,31 +14,31 @@
 	<h2>登録内容確認</h2>
 	<div th:object="${ramen}">
 
-		<table class="table table-hover table-active table-primary">
+		<table class="table table-striped">
+
+
 			<tr>
 				<th>お店</th>
-			</tr>
-			<tr>
 				<td><div th:text="*{shop}"></div></td>
 			</tr>
 			<tr>
 				<th>種類</th>
-			</tr>
-
-			<tr>
 				<td><div th:text="*{type}"></div></td>
 			</tr>
 			<tr>
 				<th>評価</th>
-			<tr>
 				<td><div th:text="*{star}"></div></td>
 			</tr>
 			<tr>
 				<th>来店日</th>
-			<tr>
-			<tr>
-				<th><div th:text="*{day}"></div></th>
+				<td><div th:text="*{day}"></div></td>
 			</tr>
+			<tr>
+				<th>写真</th>
+				<td><div th:text="*{day}"></div></td>
+			</tr>
+
+
 
 
 		</table>
