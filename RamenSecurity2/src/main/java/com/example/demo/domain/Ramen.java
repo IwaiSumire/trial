@@ -27,4 +27,5 @@ public class Ramen {
 	private String day;
 
 	private byte[] pic;
+	
 }
