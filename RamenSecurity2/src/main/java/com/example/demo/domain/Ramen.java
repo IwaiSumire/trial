@@ -26,6 +26,6 @@ public class Ramen {
 	//@NotBlank(message = "入力してください")
 	private String day;
 
-	private byte[] pic;
-	
+	private String pic;
+
 }

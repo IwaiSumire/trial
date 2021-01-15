@@ -45,8 +45,6 @@ public class RamenController {
 			return "ramens/new";//"redirect:/ramens/new"
 		}
 
-
-
 		ramenService.insert(ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
@@ -55,6 +53,9 @@ public class RamenController {
 	public String show(Authentication loginUser, @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
+
+
+
 
 		return "ramens/show";
 	}

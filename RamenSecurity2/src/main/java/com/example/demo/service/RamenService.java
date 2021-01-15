@@ -25,8 +25,12 @@ public class RamenService {
 		return ramenMapper.selectOne(id);
 	}
 
+
+
 	@Transactional
 	public void insert(Ramen ramen) {
+
+
 		ramenMapper.insert(ramen);
 	}
 

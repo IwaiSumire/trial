@@ -14,7 +14,7 @@
 
 	<h2>新規ラーメン作成</h2>
 
-	<form method="post" th:action="@{/ramens/new}" th:object="${ramen}" >
+	<form method="post" th:action="@{/ramens/new}" th:object="${ramen}">
 		<ul>
 			<li><label>お店</label> <br> <input type="text" id="shop"
 				name="shop" th:field="*{shop}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
@@ -40,9 +40,13 @@
 			<input type="date" name="day" placeholder="yyyy/MM/dd"
 				th:field="*{day}"></li>
 
-			<li><label>画像</label> <br>
-			<input type="file" name="example" accept="image/jpeg, image/png"
-				th:field="*{pic}"></li>
+			<li><label>画像リンク</label> <br>
+
+			<input type="text" id="pic"
+				name="pic" th:field="*{pic}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+
+
+			</li>
 		</ul>
 
 		<button class="btn btn-primary">新規作成</button>
