@@ -22,8 +22,6 @@ public interface RamenMapper {
 	@Select("select * from ramen where id = #{id}")
 	Ramen selectOne(Long id);
 
-
-
 	@Insert("insert into ramen (shop, type, star,day,pic) values (#{shop}, #{type}, #{star},#{day},#{pic})")
 	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
@@ -34,7 +32,7 @@ public interface RamenMapper {
 	@Delete("delete from ramen where id = #{id}")
 	void delete(Long id);
 
-
-
+	@Select("select id from ramen where shop like '%#{sShop}%'")
+	Long serchShopId(String sShop);
 
 }

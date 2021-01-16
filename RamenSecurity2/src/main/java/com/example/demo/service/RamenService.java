@@ -17,9 +17,7 @@ public class RamenService {
 
 	@Transactional
 	public List<Ramen> selectAll() {
-
 		return ramenMapper.selectAll();
-
 	}
 
 	@Transactional
@@ -29,7 +27,6 @@ public class RamenService {
 
 	@Transactional
 	public void insert(Ramen ramen) {
-
 		ramenMapper.insert(ramen);
 	}
 
@@ -41,6 +38,11 @@ public class RamenService {
 	@Transactional
 	public void delete(Long id) {
 		ramenMapper.delete(id);
+	}
+
+	@Transactional
+	public Long serchShopId(String sShop) {
+		return ramenMapper.serchShopId(sShop);
 	}
 
 }

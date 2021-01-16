@@ -30,14 +30,19 @@
 	<a th:href="@{/ramens/new}">
 		<button type="button" class="btn btn-danger">New ラーメン</button>
 	</a>
-	<div class="formwide" th:href="@{/ramens/top}">
-		<div class="input-group ">
-			<input type="text" class="form-control"
-				placeholder="店名検索"> <span class="input-group-btn">
-				<button type="button" class="btn btn-outline-info">ボタン</button>
-			</span>
-		</div>
+
+
+	<div class="input-group ">
+
+		<form method="post" th:action="@{/ramens/afterTop}"
+			th:object="${sShop}">
+			<input name="sShop" type="text" class="form-control"
+				placeholder="店名検索">
+			<input type="submit" value="検索">
+		</form>
 	</div>
+
+
 	<div class="panel-body" th:if="!${ramen.size()}">
 		<!-- データがゼロのとき -->
 		<p>食べたラーメンを登録しましょう！</p>
@@ -54,7 +59,9 @@
 				<th>お店</th>
 				<th>種類</th>
 				<th>評価(★)</th>
-
+				<th></th>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -65,8 +72,12 @@
 				<td th:text="*{type}"></td>
 				<td class="star" th:text="*{star}"></td>
 
-				<td><a th:href="@{/ramens/{id}(id=*{id})}"><button
-							type="button" class="btn btn-warning">詳細</button></a></td>
+				<td><a th:href="@{/ramens/{id}(id=*{id})}">
+						<button type="button" class="btn btn-warning">詳細</button>
+				</a></td>
+
+
+
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
