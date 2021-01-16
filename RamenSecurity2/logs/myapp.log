@@ -221,3 +221,148 @@ org.attoparser.ParseException: (Line = 45, Column = 39) Malformed markup: Attrib
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.41.jar:9.0.41]
 	at java.base/java.lang.Thread.run(Thread.java:834) ~[na:na]
 
+2021-01-17 00:37:27.053  INFO 3564 --- [Thread-18] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:37:27.054  INFO 3564 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown initiated...
+2021-01-17 00:37:27.063  INFO 3564 --- [Thread-18] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Shutdown completed.
+2021-01-17 00:37:27.141  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Starting RamenSecurity2Application using Java 11.0.8 on DESKTOP-87EKCF9 with PID 3564 (C:\trial\RamenSecurity2\target\classes started by kurur in C:\trial\RamenSecurity2)
+2021-01-17 00:37:27.141  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : No active profile set, falling back to default profiles: default
+2021-01-17 00:37:27.420  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-17 00:37:27.420  INFO 3564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-17 00:37:27.421  INFO 3564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-17 00:37:27.442  INFO 3564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-17 00:37:27.442  INFO 3564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 298 ms
+2021-01-17 00:37:27.472  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-01-17 00:37:27.483  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-01-17 00:37:27.493  INFO 3564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-17 00:37:27.536  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**,/head'] with []
+2021-01-17 00:37:27.542  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@54d51004, org.springframework.security.web.context.SecurityContextPersistenceFilter@ba23a5, org.springframework.security.web.header.HeaderWriterFilter@28a0bf4f, org.springframework.security.web.csrf.CsrfFilter@319697f8, org.springframework.security.web.authentication.logout.LogoutFilter@c74eb52, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@6320d597, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7518e164, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@58ef624f, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@24eee620, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@e20c44, org.springframework.security.web.session.SessionManagementFilter@5965db8, org.springframework.security.web.access.ExceptionTranslationFilter@193d8d43, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@208e9dbf]
+2021-01-17 00:37:27.572  INFO 3564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:37:27.735  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-17 00:37:27.739  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Started RamenSecurity2Application in 0.622 seconds (JVM running for 2726.094)
+2021-01-17 00:37:27.741  INFO 3564 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-01-17 00:37:31.895  INFO 3564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-17 00:37:31.896  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-17 00:37:31.898  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2021-01-17 00:38:07.221  INFO 3564 --- [Thread-23] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:38:07.221  INFO 3564 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown initiated...
+2021-01-17 00:38:07.229  INFO 3564 --- [Thread-23] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Shutdown completed.
+2021-01-17 00:38:07.289  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Starting RamenSecurity2Application using Java 11.0.8 on DESKTOP-87EKCF9 with PID 3564 (C:\trial\RamenSecurity2\target\classes started by kurur in C:\trial\RamenSecurity2)
+2021-01-17 00:38:07.289  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : No active profile set, falling back to default profiles: default
+2021-01-17 00:38:07.517  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-17 00:38:07.518  INFO 3564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-17 00:38:07.518  INFO 3564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-17 00:38:07.536  INFO 3564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-17 00:38:07.536  INFO 3564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 244 ms
+2021-01-17 00:38:07.563  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Starting...
+2021-01-17 00:38:07.575  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Start completed.
+2021-01-17 00:38:07.583  INFO 3564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-17 00:38:07.624  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**,/head/**'] with []
+2021-01-17 00:38:07.630  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7f2e7fa9, org.springframework.security.web.context.SecurityContextPersistenceFilter@3622a606, org.springframework.security.web.header.HeaderWriterFilter@175cb55d, org.springframework.security.web.csrf.CsrfFilter@cca9f8e, org.springframework.security.web.authentication.logout.LogoutFilter@55b37b6a, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@621d8124, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9d20fc6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7bd6a5fc, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@223399f6, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2314c840, org.springframework.security.web.session.SessionManagementFilter@6e4c62ae, org.springframework.security.web.access.ExceptionTranslationFilter@7dc850f4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e104ed2]
+2021-01-17 00:38:07.653  INFO 3564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:38:07.794  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-17 00:38:07.798  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Started RamenSecurity2Application in 0.528 seconds (JVM running for 2766.153)
+2021-01-17 00:38:07.799  INFO 3564 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-01-17 00:38:12.704  INFO 3564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-17 00:38:12.706  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-17 00:38:12.706  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-01-17 00:38:24.690  INFO 3564 --- [Thread-28] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:38:24.690  INFO 3564 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown initiated...
+2021-01-17 00:38:24.692  INFO 3564 --- [Thread-28] com.zaxxer.hikari.HikariDataSource       : HikariPool-6 - Shutdown completed.
+2021-01-17 00:38:24.755  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Starting RamenSecurity2Application using Java 11.0.8 on DESKTOP-87EKCF9 with PID 3564 (C:\trial\RamenSecurity2\target\classes started by kurur in C:\trial\RamenSecurity2)
+2021-01-17 00:38:24.755  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : No active profile set, falling back to default profiles: default
+2021-01-17 00:38:24.941  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-17 00:38:24.942  INFO 3564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-17 00:38:24.942  INFO 3564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-17 00:38:24.959  INFO 3564 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-17 00:38:24.959  INFO 3564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 201 ms
+2021-01-17 00:38:24.987  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Starting...
+2021-01-17 00:38:24.998  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Start completed.
+2021-01-17 00:38:25.005  INFO 3564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-17 00:38:25.041  WARN 3564 --- [restartedMain] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	文字列リテラルがダブル・クォートによって正しく閉じられていません
+
+2021-01-17 00:38:25.041  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown initiated...
+2021-01-17 00:38:25.042  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-7 - Shutdown completed.
+2021-01-17 00:38:25.043  INFO 3564 --- [restartedMain] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2021-01-17 00:38:25.049  INFO 3564 --- [restartedMain] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2021-01-17 00:38:25.066 ERROR 3564 --- [restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'springSecurityFilterChain' defined in class path resource [org/springframework/security/config/annotation/web/configuration/WebSecurityConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	文字列リテラルがダブル・クォートによって正しく閉じられていません
+
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:486) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1336) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1179) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:571) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:531) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:322) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:944) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:923) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:588) ~[spring-context-5.3.2.jar:5.3.2]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:144) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:767) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:426) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:326) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1309) ~[spring-boot-2.4.1.jar:2.4.1]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1298) ~[spring-boot-2.4.1.jar:2.4.1]
+	at com.example.demo.RamenSecurity2Application.main(RamenSecurity2Application.java:10) ~[classes/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49) ~[spring-boot-devtools-2.4.1.jar:2.4.1]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [javax.servlet.Filter]: Factory method 'springSecurityFilterChain' threw exception; nested exception is java.lang.Error: Unresolved compilation problem: 
+	文字列リテラルがダブル・クォートによって正しく閉じられていません
+
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.2.jar:5.3.2]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.2.jar:5.3.2]
+	... 27 common frames omitted
+Caused by: java.lang.Error: Unresolved compilation problem: 
+	文字列リテラルがダブル・クォートによって正しく閉じられていません
+
+	at com.example.demo.security.config.SecurityConfig.configure(SecurityConfig.java:33) ~[classes/:na]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter.configure(WebSecurityConfigurerAdapter.java:93) ~[spring-security-config-5.4.2.jar:5.4.2]
+	at com.example.demo.security.config.SecurityConfig$$EnhancerBySpringCGLIB$$6e7c6916.configure(<generated>) ~[classes/:na]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.configure(AbstractConfiguredSecurityBuilder.java:349) ~[spring-security-config-5.4.2.jar:5.4.2]
+	at org.springframework.security.config.annotation.AbstractConfiguredSecurityBuilder.doBuild(AbstractConfiguredSecurityBuilder.java:303) ~[spring-security-config-5.4.2.jar:5.4.2]
+	at org.springframework.security.config.annotation.AbstractSecurityBuilder.build(AbstractSecurityBuilder.java:38) ~[spring-security-config-5.4.2.jar:5.4.2]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration.springSecurityFilterChain(WebSecurityConfiguration.java:127) ~[spring-security-config-5.4.2.jar:5.4.2]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566) ~[na:na]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.2.jar:5.3.2]
+	... 28 common frames omitted
+
+2021-01-17 00:38:34.737  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Starting RamenSecurity2Application using Java 11.0.8 on DESKTOP-87EKCF9 with PID 3564 (C:\trial\RamenSecurity2\target\classes started by kurur in C:\trial\RamenSecurity2)
+2021-01-17 00:38:34.737  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : No active profile set, falling back to default profiles: default
+2021-01-17 00:38:34.955  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2021-01-17 00:38:34.957  INFO 3564 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-17 00:38:34.957  INFO 3564 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-17 00:38:34.974  INFO 3564 --- [restartedMain] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring embedded WebApplicationContext
+2021-01-17 00:38:34.974  INFO 3564 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 217 ms
+2021-01-17 00:38:34.999  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Starting...
+2021-01-17 00:38:35.009  INFO 3564 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Start completed.
+2021-01-17 00:38:35.020  INFO 3564 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-01-17 00:38:35.057  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure Ant [pattern='/css/**'] with []
+2021-01-17 00:38:35.063  INFO 3564 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30dd8e21, org.springframework.security.web.context.SecurityContextPersistenceFilter@2681211d, org.springframework.security.web.header.HeaderWriterFilter@23df8e4b, org.springframework.security.web.csrf.CsrfFilter@40123196, org.springframework.security.web.authentication.logout.LogoutFilter@66599a83, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@27a0aa6a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@10425250, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4f303bc5, org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter@6c6cdaf0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2d84ab4c, org.springframework.security.web.session.SessionManagementFilter@77ce30f3, org.springframework.security.web.access.ExceptionTranslationFilter@19a5ea0f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7ebc7f01]
+2021-01-17 00:38:35.084  INFO 3564 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:38:35.211  INFO 3564 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-01-17 00:38:35.214  INFO 3564 --- [restartedMain] c.e.demo.RamenSecurity2Application       : Started RamenSecurity2Application in 0.504 seconds (JVM running for 2793.57)
+2021-01-17 00:38:35.216  INFO 3564 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-01-17 00:39:12.476  INFO 3564 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat-1].[localhost].[/]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-17 00:39:12.477  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-17 00:39:12.477  INFO 3564 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2021-01-17 00:57:42.205  INFO 3564 --- [RMI TCP Connection(70)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2021-01-17 00:57:42.303  INFO 3564 --- [RMI TCP Connection(70)-127.0.0.1] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-01-17 00:57:42.303  INFO 3564 --- [RMI TCP Connection(70)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown initiated...
+2021-01-17 00:57:42.303  INFO 3564 --- [RMI TCP Connection(70)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-8 - Shutdown completed.

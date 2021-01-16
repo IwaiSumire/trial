@@ -1,3 +1,5 @@
+<!--
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
@@ -21,8 +23,7 @@
 
 	<table id="fav-table" class="table table-striped"
 		th:if="${ramen.size()}">
-		<!-- DBのデータがあるとき -->
-		<!-- データが１以上のとき -->
+
 		<thead>
 			<tr>
 				<th>＃NO</th>
@@ -34,7 +35,7 @@
 		</thead>
 		<tbody>
 			<tr th:each="ramen:${ramen}" th:object="${ramen}">
-				<!-- each;DBの情報をすべて出すまで繰り返す -->
+
 				<td th:text="*{id}"></td>
 				<td th:text="*{shop}"></td>
 				<td th:text="*{type}"></td>
@@ -47,8 +48,7 @@
 				<td>
 					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
 						th:method="delete">
-						<!-- public delete にaccessできる -->
-						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
+
 						<button class="btn btn-dark">消去</button>
 					</form>
 				</td>
@@ -60,3 +60,5 @@
 
 </body>
 </html>
+
+-->
