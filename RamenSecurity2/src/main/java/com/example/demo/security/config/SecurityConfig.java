@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/css/**");
 	}
 
-	@Bean
+	@Bean //パスワードのエンコードの指定（エンコード化は他にも色々ある）
 	public BCryptPasswordEncoder passwordEncoder() {
 
 		return new BCryptPasswordEncoder();
@@ -46,7 +46,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http
 				.authorizeRequests()//ルール、アクセスポリシーの設定
-				.antMatchers("/login","/newUser").permitAll()//loginは認証なしでaccessできる
+				.antMatchers("/login", "/newUser").permitAll()//loginは認証なしでaccessできる
 				.anyRequest().authenticated()//↑以外のすべてのURLリクエストをloginしないと見れない
 				//↑特定のページを見れるようにするにはauthenticated()に入れる
 				.and()
@@ -71,6 +71,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//.passwordEncoder((new BCryptPasswordEncoder()));←上で設定してるから不要
 
 	}
-
 
 }

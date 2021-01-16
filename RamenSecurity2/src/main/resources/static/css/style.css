@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.star {
+	color: #FF5234;
+}
+
 .formwide {
 	margin-top: 20px;
 	width: 20%;

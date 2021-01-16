@@ -9,6 +9,7 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	<h2>登録内容確認</h2>
@@ -23,11 +24,11 @@
 			</tr>
 			<tr>
 				<th>種類</th>
-				<td><div th:text="*{type}"></div></td>
+				<td><div ><div th:text="*{type}"></div></div></td>
 			</tr>
 			<tr>
 				<th>評価</th>
-				<td><div th:text="*{star}"></div></td>
+				<td><font color="#FF5234"><div th:text="*{star}"></div></font></td>
 			</tr>
 			<tr>
 				<th>来店日</th>

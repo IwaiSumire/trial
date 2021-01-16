@@ -25,23 +25,7 @@
 </head>
 <body>
 
-	<h1>ラーメンリスト</h1>
-
-	<a th:href="@{/ramens/new}">
-		<button type="button" class="btn btn-danger">New ラーメン</button>
-	</a>
-	<div class="formwide" th:href="@{/ramens/top}">
-		<div class="input-group ">
-			<input type="text" class="form-control"
-				placeholder="店名検索"> <span class="input-group-btn">
-				<button type="button" class="btn btn-outline-info">ボタン</button>
-			</span>
-		</div>
-	</div>
-	<div class="panel-body" th:if="!${ramen.size()}">
-		<!-- データがゼロのとき -->
-		<p>食べたラーメンを登録しましょう！</p>
-	</div>
+	<h1>検索結果</h1>
 
 
 	<table id="fav-table" class="table table-striped"
