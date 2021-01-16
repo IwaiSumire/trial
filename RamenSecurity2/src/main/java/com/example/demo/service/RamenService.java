@@ -41,7 +41,7 @@ public class RamenService {
 	}
 
 	@Transactional
-	public Long serchShopId(String sShop) {
+	public List<Ramen> serchShopId(String sShop) {
 		return ramenMapper.serchShopId(sShop);
 	}
 

@@ -32,7 +32,7 @@ public interface RamenMapper {
 	@Delete("delete from ramen where id = #{id}")
 	void delete(Long id);
 
-	@Select("select id from ramen where shop like '%#{sShop}%'")
-	Long serchShopId(String sShop);
+	@Select("select * from ramen where shop like '%${sShop}%'")
+	List<Ramen> serchShopId(String sShop);
 
 }
