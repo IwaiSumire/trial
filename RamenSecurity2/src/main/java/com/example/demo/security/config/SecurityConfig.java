@@ -23,6 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+
+
 	/*パスワードの暗号用にbcryptを使用する
 	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
 	 * */
@@ -47,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 				.authorizeRequests()//ルール、アクセスポリシーの設定
 				.antMatchers("/login", "/newUser").permitAll()//loginは認証なしでaccessできる
+				.antMatchers("/newUser").hasAnyRole("ADMIN")
 				.anyRequest().authenticated()//↑以外のすべてのURLリクエストをloginしないと見れない
 				//↑特定のページを見れるようにするにはauthenticated()に入れる
 				.and()

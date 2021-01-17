@@ -33,9 +33,6 @@
 		<button type="button" class="btn btn-danger ml-2">New ラーメン</button>
 	</a>
 
-
-
-
 	<form class="form-inline mt-2" id="form5" method="post"
 		th:action="@{/ramens/afterTop}" th:object="${SearchShop}">
 		<div class="form-group mx-sm-3 mb-2">
@@ -46,11 +43,9 @@
 	</form>
 
 
-
-
 	<div class="panel-body" th:if="!${ramen.size()}">
 		<!-- データがゼロのとき -->
-		<p>食べたラーメンを登録しましょう！</p>
+		<p class="alert alert-primary" role="alert">該当の検索結果がありません！</p>
 	</div>
 
 

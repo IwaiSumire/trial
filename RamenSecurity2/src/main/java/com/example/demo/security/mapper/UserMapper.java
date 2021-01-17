@@ -14,7 +14,7 @@ public interface UserMapper {
 	@Select("select * from user where username = #{username}")
 	public MyUser findByUsername(String username);//識別する
 
-	@Insert("insert into user (username, password) values (#{username}, #{password})")
+	@Insert("insert into user (username, password,nickname,role) values (#{username}, #{password}, #{nickname}, #{role})")
 	@Options(useGeneratedKeys = true) //勝手に登録
 	void insert(MyUser user);
 
