@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.domain.Ramen;
 import com.example.demo.service.RamenService;
@@ -41,7 +40,7 @@ public class RamenController {
 	}
 
 	@PostMapping("new") //formから作成された画面
-	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result, MultipartFile file) {
+	public String create(@Validated @ModelAttribute Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
