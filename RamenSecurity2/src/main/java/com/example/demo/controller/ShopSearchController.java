@@ -26,7 +26,7 @@ public class ShopSearchController {
 	}*/
 
 	@PostMapping("afterTop") //1件分のデータの中身を確認する
-	public String show(Authentication loginUser,@ModelAttribute("sShop") String sShop, Model model) {
+	public String show(Authentication loginUser, @ModelAttribute("sShop") String sShop, Model model) {
 
 		List<Ramen> ramen = ramenService.serchShopId(sShop);
 		model.addAttribute("ramen", ramen);
