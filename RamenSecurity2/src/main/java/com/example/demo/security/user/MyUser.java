@@ -11,8 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.demo.validator.UniqueLogin;
 
-
 public class MyUser implements UserDetails {
+
 
 	@NotBlank
 	@Size(min = 5, max = 20, message = "5～20文字以内で入力してください")
@@ -35,14 +35,13 @@ public class MyUser implements UserDetails {
 		this.nickname = nickname;
 	}
 
-	public  String getRole() {
+	public String getRole() {
 		return role;
 	}
 
 	public void setRole(String role) {
 		this.role = role;
 	}
-
 
 	private String role;
 
@@ -52,7 +51,13 @@ public class MyUser implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
+		return authorities;
+	}
+
+	private Collection<GrantedAuthority> authorities;
+
+	public void setAuthorities(Collection<GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
 
 	public void setUsername(String username) {
