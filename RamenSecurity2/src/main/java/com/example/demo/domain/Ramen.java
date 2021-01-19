@@ -26,6 +26,10 @@ public class Ramen {
 	//@NotBlank(message = "入力してください")
 	private String day;
 
+	@NotBlank(message = "名前を入力してください")
+	@Size(min = 1, max = 10, message = "1～8文字以内で入力してください")
+	private String person;
+
 	private String pic;
 
 }

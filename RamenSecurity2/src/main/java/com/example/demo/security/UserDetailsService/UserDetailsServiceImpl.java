@@ -64,7 +64,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {//UserDetails
 
 		returnMyUser.setUsername(myUser.getUsername());
 		returnMyUser.setPassword(myUser.getPassword());
-		returnMyUser.setNickname(myUser.getNickname());
+
 		returnMyUser.setAuthorities(getAuthrities);
 
 		return returnMyUser;

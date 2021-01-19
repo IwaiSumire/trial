@@ -14,10 +14,11 @@ public interface UserMapper {
 	@Select("select * from user where username = #{username}")
 	public MyUser findByUsername(String username);//識別する
 
-	@Insert("insert into user (username, password,nickname,role) values (#{username}, #{password}, #{nickname}, #{role})")
+	@Insert("insert into user (username, password,role) values (#{username}, #{password}, #{role})")
 	@Options(useGeneratedKeys = true) //勝手に登録
 	void insert(MyUser user);
 
-
+	@Select("select nickname from user where username = #{username}")
+	public String findRegistrationrname(String username);//識別する
 
 }

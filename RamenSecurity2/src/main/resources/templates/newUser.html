@@ -20,22 +20,19 @@
 				class="form-signin" th:object="${user}">
 				<h3 class="form-signin-heading">新規ユーザ登録</h3>
 				<hr class="colorgraph">
-				<br> <span>メールアドレス</span> <input type="text"
+				<br> <span>username(Email)</span> <input type="text"
 					class="form-control" name="username" th:field="*{username}" />
 				<div th:if="${#fields.hasErrors('username')}"
 					th:errors="*{username}"></div>
 				<br> <span>password</span> <input type="password"
-					class="form-control" name="password" th:field="*{password}" /> <span>ニックネーム</span>
-				<input type="text" class="form-control" name="nickname"
-					th:field="*{nickname}" />
+					class="form-control" name="password" th:field="*{password}" />
 
 
 				<div class="mt-2 mb-2">
 
-				<input type="radio" name="user" value="user" th:field="*{role}"
-						checked="checked">ユーザ
-
-					<input class="ml-2" type="radio" name="admin" value="admin" th:field="*{role}">管理者
+					<input type="radio" name="user" value="user" th:field="*{role}"
+						checked="checked">ユーザ <input class="ml-2" type="radio"
+						name="admin" value="admin" th:field="*{role}">管理者
 
 
 				</div>

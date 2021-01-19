@@ -22,11 +22,11 @@ public interface RamenMapper {
 	@Select("select * from ramen where id = #{id}")
 	Ramen selectOne(Long id);
 
-	@Insert("insert into ramen (shop, type, star,day,pic) values (#{shop}, #{type}, #{star},#{day},#{pic})")
+	@Insert("insert into ramen (shop, type, star,day,pic,person) values (#{shop}, #{type}, #{star},#{day},#{pic},#{person})")
 	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
 
-	@Update("update ramen set shop = #{shop}, type = #{type}, star = #{star} where id = #{id}")
+	@Update("update ramen set shop = #{shop}, type = #{type}, star = #{star} , day = #{day} , pic = #{pic}, pserson = #{person} where id = #{id}")
 	int update(Ramen ramen);
 
 	@Delete("delete from ramen where id = #{id}")

@@ -25,15 +25,9 @@ public class MyUser implements UserDetails {
 
 	@Size(min = 1, max = 7, message = "1～7文字以内で入力してください")
 	@NotBlank
-	private String nickname;
 
-	public String getNickname() {
-		return nickname;
-	}
 
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
-	}
+
 
 	public String getRole() {
 		return role;

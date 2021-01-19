@@ -55,10 +55,11 @@
 		<!-- データが１以上のとき -->
 		<thead>
 			<tr>
-				<th>＃NO</th>
+				<th>ID#</th>
 				<th>お店</th>
 				<th>種類</th>
 				<th>評価(★)</th>
+				<th>登録者</th>
 				<th></th>
 				<th></th>
 				<th></th>
@@ -71,6 +72,7 @@
 				<td th:text="*{shop}"></td>
 				<td th:text="*{type}"></td>
 				<td class="text-danger" th:text="*{star}"></td>
+				<td th:text="*{person}"></td>
 
 				<td><a th:href="@{/ramens/{id}(id=*{id})}">
 						<button type="button" class="btn btn-warning">詳細</button>
