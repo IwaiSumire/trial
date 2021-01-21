@@ -6,7 +6,8 @@
 <head th:replace="head :: header">
 <meta charset="UTF-8">
 <title>ラーメン情報変更</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 </head>
 <body>
 
@@ -16,20 +17,46 @@
 		th:object="${ramen}">
 		<!-- 入力したやつをramenの中にいれて使える -->
 
-		<label>お店</label> <br> <input type="text" th:field="*{shop}" />
-		<br> <label>種類</label> <br> <input type="text"
-			th:field="*{type}" /> <br> <label>評価</label> <br>
 
-			<select th:field="*{star}">
-			<option value="">再評価してください</option>
+		<ul>
+			<li><label>お店</label> <br> <input type="text" id="shop"
+				name="shop" th:field="*{shop}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+				<div th:if="${#fields.hasErrors('shop')}" th:errors="*{shop}">エラー</div>
+
+			</li>
+
+
+			<li><label>種類</label> <br> <input type="text" name="type"
+				th:field="*{type}">
+				<div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">エラー</div>
+
+			</li>
+			<li><label>評価</label> <br> <select name="star"
+				th:field="*{star}">
 					<option value="★">★</option>
 					<option value="★★">★★</option>
 					<option value="★★★">★★★</option>
 					<option value="★★★★">★★★★</option>
 					<option value="★★★★★">★★★★★</option>
+			</select></li>
+			<li><label>来店日</label><br>
+			<input type="date" name="day" placeholder="yyyy/MM/dd"
+				th:field="*{day}"></li>
 
-			</select> <br> <br>
-		<button class="btn btn-primary">更新！</button>
+			<li><label>画像リンク</label> <br>
+
+			<input type="text" id="pic"
+				name="pic" th:field="*{pic}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+
+
+			</li>
+		</ul>
+
+
+
+
+
+		<button class="btn btn-primary">更新</button>
 
 
 	</form>

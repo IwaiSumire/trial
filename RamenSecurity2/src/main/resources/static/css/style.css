@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+
+
+
+
+.formwide {
+	margin-top: 20px;
+	width: 20%;
+	margin-bottom: 20px;
+}
+
 .user {
 	color: white;
 }

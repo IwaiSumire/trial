@@ -5,52 +5,86 @@
 <head th:replace="head :: header">
 <meta charset="UTF-8">
 <title>ラーメンリスト</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript"
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 <link rel="stylesheet" href="css/style.css">
+
+<script>
+	$(document).ready(function() {
+		$('#fav-table').tablesorter();
+	});
+</script>
+
 </head>
 <body>
 
 	<h1>ラーメンリスト</h1>
 
+
+
 	<a th:href="@{/ramens/new}">
-		<button type="button" class="btn btn-danger">New ラーメン</button>
+		<button type="button" class="btn btn-danger ml-2">New ラーメン</button>
 	</a>
+
+	<form class="form-inline mt-2" id="form5" method="post"
+		th:action="@{/ramens/afterTop}" th:object="${SearchShop}">
+		<div class="form-group mx-sm-3 mb-2">
+			<label class="sr-only">店名検索</label> <input name="sShop" type="text"
+				class="form-control" placeholder="店名検索">
+		</div>
+		<button type="submit" class="btn btn-primary mb-2">検索</button>
+	</form>
 
 
 	<div class="panel-body" th:if="!${ramen.size()}">
 		<!-- データがゼロのとき -->
-		<p>食べたラーメンを登録しましょう！</p>
+		<p class="alert alert-primary" role="alert">該当の検索結果がありません！</p>
 	</div>
 
 
-	<table class="table table-striped" th:if="${ramen.size()}" >
-	<!-- DBのデータがあるとき -->
+	<table id="fav-table" class="table table-striped"
+		th:if="${ramen.size()}">
+		<!-- DBのデータがあるとき -->
 		<!-- データが１以上のとき -->
 		<thead>
 			<tr>
-				<th>＃NO</th>
+				<th>ID#</th>
 				<th>お店</th>
 				<th>種類</th>
 				<th>評価(★)</th>
+				<th>登録者</th>
 				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="ramen:${ramen}" th:object="${ramen}" >
+			<tr th:each="ramen:${ramen}" th:object="${ramen}">
 				<!-- each;DBの情報をすべて出すまで繰り返す -->
 				<td th:text="*{id}"></td>
 				<td th:text="*{shop}"></td>
 				<td th:text="*{type}"></td>
-				<td th:text="*{star}"></td>
+				<td class="text-danger" th:text="*{star}"></td>
+				<td th:text="*{person}"></td>
 
-				<td><a th:href="@{/ramens/{id}(id=*{id})}"><button
-							type="button" class="btn btn-warning">詳細</button></a></td>
+				<td><a th:href="@{/ramens/{id}(id=*{id})}">
+						<button type="button" class="btn btn-warning">詳細</button>
+				</a></td>
+
+
+
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
-					<form th:action="@{/ramens/{id}/delete(id=*{id})}" th:method="delete">
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
+						th:method="delete">
 						<!-- public delete にaccessできる -->
 						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
 						<button class="btn btn-dark">消去</button>

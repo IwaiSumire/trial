@@ -26,8 +26,6 @@ public class RamenController {
 
 	@GetMapping("") //最初の画面
 	public String top(Authentication loginUser, Model model) { //全件取得
-
-
 		model.addAttribute("ramen", ramenService.selectAll());
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/top";//topでramen(全件入っている)を使える
@@ -45,6 +43,7 @@ public class RamenController {
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
 		}
+
 		ramenService.insert(ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
@@ -60,6 +59,7 @@ public class RamenController {
 	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
+
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 

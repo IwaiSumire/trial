@@ -1,0 +1,64 @@
+<!--
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head th:replace="head :: header">
+<meta charset="UTF-8">
+<title>ラーメンリスト</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="css/style.css">
+
+
+
+</head>
+<body>
+
+	<h1>検索結果</h1>
+
+
+	<table id="fav-table" class="table table-striped"
+		th:if="${ramen.size()}">
+
+		<thead>
+			<tr>
+				<th>＃NO</th>
+				<th>お店</th>
+				<th>種類</th>
+				<th>評価(★)</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="ramen:${ramen}" th:object="${ramen}">
+
+				<td th:text="*{id}"></td>
+				<td th:text="*{shop}"></td>
+				<td th:text="*{type}"></td>
+				<td class="star" th:text="*{star}"></td>
+
+				<td><a th:href="@{/ramens/{id}(id=*{id})}"><button
+							type="button" class="btn btn-warning">詳細</button></a></td>
+				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
+							type="button" class="btn btn-primary">変更</button></a></td>
+				<td>
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
+						th:method="delete">
+
+						<button class="btn btn-dark">消去</button>
+					</form>
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+
+</body>
+</html>
+
+-->

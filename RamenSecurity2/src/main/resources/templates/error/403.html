@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layout">
+<head>
+<meta charset="UTF-8">
+<title>404error</title>
+
+<link rel="stylesheet" href="css/style.css">
+<body>
+	<h1 th:text="${status} + '' +${error}"></h1>
+
+	<h2 class="alert alert-primary" role="alert">あなたにユーザ登録の権限がありません</h2>
+
+	<form method=get th:action="@{/ramens}">
+		<button class="btn btn-outline-light" type="submit">TOP画面に戻る</button>
+	</form>
+
+</body>
+</html>
+

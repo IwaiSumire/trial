@@ -39,4 +39,11 @@ public class RamenService {
 	public void delete(Long id) {
 		ramenMapper.delete(id);
 	}
+
+	@Transactional
+	public List<Ramen> serchShopId(String sShop) {
+		return ramenMapper.serchShopId(sShop);
+	}
+
+
 }

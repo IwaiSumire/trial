@@ -15,7 +15,7 @@ public class MyUser implements UserDetails {
 
 
 	@NotBlank
-	@Size(min = 5, max = 20,message = "5～20文字以内で入力してください")
+	@Size(min = 5, max = 20, message = "5～20文字以内で入力してください")
 	private String password;
 
 	@NotBlank(message = "入力してください")
@@ -23,14 +23,35 @@ public class MyUser implements UserDetails {
 	@UniqueLogin
 	private String username;
 
+	@Size(min = 1, max = 7, message = "1～7文字以内で入力してください")
+	@NotBlank
+
+
+
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	private String role;
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO 自動生成されたメソッド・スタブ
-		return null;
+		return authorities;
+	}
+
+	private Collection<GrantedAuthority> authorities;
+
+	public void setAuthorities(Collection<GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
 
 	public void setUsername(String username) {

@@ -3,5 +3,7 @@ CREATE TABLE IF NOT EXISTS ramen (
   shop varchar(255) DEFAULT NULL,
   type varchar(255) DEFAULT NULL,
   star varchar(255) DEFAULT NULL,
+  day DATE,
+  pic BLOB,
   PRIMARY KEY (id)
 );

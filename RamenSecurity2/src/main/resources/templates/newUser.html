@@ -18,17 +18,27 @@
 		<div class="wrapper">
 			<form th:action="@{/newUser}" method="post" name="Login_Form"
 				class="form-signin" th:object="${user}">
-				<h3 class="form-signin-heading">ユーザ登録</h3>
-				<h5 class="form-signin-heading">usernameはemailアドレス</h5>
+				<h3 class="form-signin-heading">新規ユーザ登録</h3>
 				<hr class="colorgraph">
-				<br> <span>username</span>
-				<input type="text" class="form-control" name="username"
-					th:field="*{username}" />
-					<div th:if="${#fields.hasErrors('username')}"  th:errors="*{username}"></div>
-					 <span>password</span>
-					 <input type="password"
+				<br> <span>username(Email)</span> <input type="text"
+					class="form-control" name="username" th:field="*{username}" />
+				<div th:if="${#fields.hasErrors('username')}"
+					th:errors="*{username}"></div>
+				<br> <span>password</span> <input type="password"
 					class="form-control" name="password" th:field="*{password}" />
-					<div th:if="${#fields.hasErrors('password')}"  th:errors="*{password}"></div>
+
+
+				<div class="mt-2 mb-2">
+
+					<input type="radio" name="user" value="user" th:field="*{role}"
+						checked="checked">ユーザ <input class="ml-2" type="radio"
+						name="admin" value="admin" th:field="*{role}">管理者
+
+
+				</div>
+
+				<div th:if="${#fields.hasErrors('password')}"
+					th:errors="*{password}"></div>
 
 				<button class="btn btn-lg btn-primary btn-block" name="Submit"
 					value="Login" type="Submit">新規登録</button>

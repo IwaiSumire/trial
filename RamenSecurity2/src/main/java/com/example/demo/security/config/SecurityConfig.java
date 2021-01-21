@@ -23,6 +23,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
+
+
 	/*パスワードの暗号用にbcryptを使用する
 	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
 	 * */
@@ -33,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/css/**");
 	}
 
-	@Bean
+	@Bean //パスワードのエンコードの指定（エンコード化は他にも色々ある）
 	public BCryptPasswordEncoder passwordEncoder() {
 
 		return new BCryptPasswordEncoder();
@@ -46,7 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 		http
 				.authorizeRequests()//ルール、アクセスポリシーの設定
-				.antMatchers("/login","/newUser").permitAll()//loginは認証なしでaccessできる
+				.antMatchers("/login", "/newUser").permitAll()//loginは認証なしでaccessできる
+				.antMatchers("/newUser").hasRole("ADMIN")
 				.anyRequest().authenticated()//↑以外のすべてのURLリクエストをloginしないと見れない
 				//↑特定のページを見れるようにするにはauthenticated()に入れる
 				.and()
@@ -71,6 +74,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		//.passwordEncoder((new BCryptPasswordEncoder()));←上で設定してるから不要
 
 	}
-
 
 }

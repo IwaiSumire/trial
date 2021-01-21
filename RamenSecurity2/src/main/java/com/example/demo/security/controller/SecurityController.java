@@ -47,7 +47,7 @@ public class SecurityController {
 
 
 
-		return "redirect:/login";
+		return "redirect:/ramens";
 	}
 
 }

@@ -9,30 +9,37 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
 	<h2>登録内容確認</h2>
 	<div th:object="${ramen}">
 
-		<table class="table table-hover table-active table-primary">
+		<table class="table table-striped">
+
+
 			<tr>
 				<th>お店</th>
-			</tr>
-			<tr>
-				<th><div th:text="*{shop}"></div></th>
+				<td><div th:text="*{shop}"></div></td>
 			</tr>
 			<tr>
 				<th>種類</th>
-			</tr>
-
-			<tr>
-				<th><div th:text="*{type}"></div></th>
+				<td><div ><div th:text="*{type}"></div></div></td>
 			</tr>
 			<tr>
 				<th>評価</th>
-			<tr>
-				<th><div th:text="*{star}"></div></th>
+				<td><div class="text-danger" th:text="*{star}"></div></td>
 			</tr>
+			<tr>
+				<th>来店日</th>
+				<td><div th:text="*{day}"></div></td>
+			</tr>
+			<tr>
+				<th>写真</th>
+				<td><img  th:src="*{pic}"  width="290" height="195"></td>
+			</tr>
+
+
 
 
 		</table>
