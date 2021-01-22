@@ -26,7 +26,7 @@ public interface RamenMapper {
 	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
 
-	@Update("update ramen set shop = #{shop}, type = #{type}, star = #{star} , day = #{day} , pic = #{pic}, pserson = #{person} where id = #{id}")
+	@Update("update ramen set shop = #{shop}, type = #{type}, star = #{star} , day = #{day} , pic = #{pic} ,person = #{person}  where id = #{id}")
 	int update(Ramen ramen);
 
 	@Delete("delete from ramen where id = #{id}")
