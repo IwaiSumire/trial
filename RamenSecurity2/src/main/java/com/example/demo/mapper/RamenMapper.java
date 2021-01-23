@@ -22,8 +22,8 @@ public interface RamenMapper {
 	@Select("select * from ramen where id = #{id}")
 	Ramen selectOne(Long id);
 
+	@Options(useGeneratedKeys = true) //自動で連番のidを取得する
 	@Insert("insert into ramen (shop, type, star,day,pic,person) values (#{shop}, #{type}, #{star},#{day},#{pic},#{person})")
-	@Options(useGeneratedKeys = true)
 	void insert(Ramen ramen);
 
 	@Update("update ramen set shop = #{shop}, type = #{type}, star = #{star} , day = #{day} , pic = #{pic} ,person = #{person}  where id = #{id}")
