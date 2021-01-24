@@ -7,3 +7,4 @@ CREATE TABLE IF NOT EXISTS ramen (
   pic BLOB,
   PRIMARY KEY (id)
 );
+

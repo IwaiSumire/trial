@@ -13,7 +13,7 @@
 
 	<h2>ラーメン情報変更</h2>
 
-	<form th:action="@{/ramens/put/{id}(id=*{id})}" th:method="put"
+	<form th:action="@{/ramens/put/{id}(id=*{id})}" th:method="get"
 		th:object="${ramen}">
 		<!-- 入力したやつをramenの中にいれて使える -->
 
@@ -55,7 +55,7 @@
 
 			</li>
 
-	
+
 		</ul>
 
 
