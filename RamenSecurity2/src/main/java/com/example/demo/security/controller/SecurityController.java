@@ -45,8 +45,6 @@ public class SecurityController {
 
 		userService.insert(user);
 
-
-
 		return "redirect:/ramens";
 	}
 
