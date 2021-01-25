@@ -12,6 +12,6 @@ spring:
    on-profile: dev
  datasource:
   initialization-mode: always
-  url: jdbc:mysql:// aa1kizjk6ybrfz.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:3306/ebdb
+  url: jdbc:mysql://aa1kizjk6ybrfz.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:3306/ebdb
   username: root
   password: kururu966
