@@ -23,8 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-
-
 	/*パスワードの暗号用にbcryptを使用する
 	 *ハッシュ化＝ハッシュ値（暗号みたいな文字の羅列）に変えている
 	 * */
