@@ -1,4 +1,4 @@
-package com.example.demo.service;
+/*package com.example.demo.service;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -55,4 +55,4 @@ class UserDetailsServiceImplTest {//セキュリティのserviceのテスト
 		assertThrows(UsernameNotFoundException.class, () -> service.loadUserByUsername("武田"));
 	}
 
-}
+}*/
