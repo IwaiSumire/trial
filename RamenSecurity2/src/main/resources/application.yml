@@ -7,14 +7,14 @@
   #port: 5000
 #---
 spring:
- config:
+ config: 
   activate:
    on-profile: dev
  datasource:
-   initialization-mode: always
-   url: jdbc:mysql://testdb.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:3306/testdb
-   username: admin
-   password: x83FTr41Twle6aSi5edp
-   driver-class-name: com.mysql.cj.jdbc.Driver
-server:
+  initialization-mode: always
+  url: jdbc:mysql://testdb.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:3306/testdb
+  username: admin
+  password: x83FTr41Twle6aSi5edp
+  driver-class-name: com.mysql.cj.jdbc.Driver
+server: 
   port: 9000
