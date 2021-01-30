@@ -17,4 +17,4 @@ spring:
   password: x83FTr41Twle6aSi5edp
   driver-class-name: com.mysql.cj.jdbc.Driver
 server: 
-  port: 9000
+  port: 5000
