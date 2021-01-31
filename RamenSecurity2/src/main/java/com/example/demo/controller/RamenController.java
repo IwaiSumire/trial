@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.domain.Ramen;
@@ -63,13 +61,13 @@ public class RamenController {
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
-	@PutMapping("put/{id}") //更新画面
+	@GetMapping("put/{id}") //更新画面
 	public String update(Ramen ramen) {
 		ramenService.update(ramen);
 		return "redirect:/ramens";
 	}
 
-	@DeleteMapping("{id}/delete") //消去画面
+	@GetMapping("{id}/delete") //消去画面
 	public String dast(@PathVariable Long id) {
 		ramenService.delete(id);
 		return "redirect:/ramens";

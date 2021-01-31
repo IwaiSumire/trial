@@ -84,7 +84,7 @@
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
 					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
-						th:method="delete">
+						th:method="get">
 						<!-- public delete にaccessできる -->
 						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
 						<button class="btn btn-dark">消去</button>
