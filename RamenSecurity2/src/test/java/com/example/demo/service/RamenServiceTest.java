@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -18,6 +19,24 @@ import com.example.demo.mapper.RamenMapper;
 @SpringBootTest
 class RamenServiceTest {
 
+	List<Ramen> niseList = new ArrayList<Ramen>();
+	Ramen niseRamen = new Ramen();
+
+	@BeforeEach
+	void 準備() {
+
+		niseRamen.setId((long) 1);
+		niseRamen.setShop("つけ麺舞");
+		niseRamen.setType("豚骨");
+		niseRamen.setPerson("すみれ");
+		niseRamen.setDay("2021/12/1");
+		niseRamen.setPic("xxxxxx");
+		niseRamen.setStar("★★");
+
+		niseList.add(niseRamen);
+
+	}
+
 	@Mock
 	RamenMapper ramenMapper;//偽物のMapper
 
@@ -28,19 +47,14 @@ class RamenServiceTest {
 	void Ramenテーブルから全件取得したらOK() {
 
 		//★テストの準備
-		List<Ramen> niseList = new ArrayList<Ramen>();
+		//List<Ramen> niseList = new ArrayList<Ramen>();
 
-		Ramen niseRamen = new Ramen();
+		//Ramen niseRamen = new Ramen();
 
-		Long id = (long) 1;
-
-		niseList.set(1, id);
-		niseList.set(niseRamen.getShop(), "つけ麺舞");
-
-
-		niseList.add(niseRamen);//とりあえず偽リストに1件いれておく
+		//niseList.add(niseRamen);//とりあえず偽リストに1件いれておく
 
 		//もし、偽マッパーで全件取ってくると指示があれば、偽物の内容を返してください
+
 		when(ramenMapper.selectAll()).thenReturn(niseList);
 		//★テスト
 		//listに探してきた全件を入れる
@@ -53,10 +67,15 @@ class RamenServiceTest {
 	}
 
 	@Test
-	void  Ramenテーブルから指定した内容が取得できていたらOK() {
+	void Ramenテーブルから指定した内容が取得できていたらOK() {
 
-		List<Ramen> niseRamen = ramenService.selectOne(1);
-		assertThat(niseRamen.size(), is(1));
+		when(ramenMapper.selectOne((long) 1)).thenReturn(niseRamen);
+
+
+		Ramen ramenSelectOne = ramenService.selectOne((long) 1);
+		assertThat(ramenSelectOne.getPerson(), is("すみれ"));
+		assertThat(ramenSelectOne.getShop(), is("つけ麺舞"));
+
 
 
 	}
@@ -70,17 +89,6 @@ class RamenServiceTest {
 		List<Ramen> ramenList = ramenService.selectAll();
 		assertThat(ramenList.size(), is(1));
 		assertThat(ramenList.size(), not(0));//0件ではないよ
-	}
-
-	@Test
-	void Ramenテーブルから指定した内容が取得できていたらOK() {
-
-		Ramen ramen = ramenService.selectOne((long) 1);
-
-		assertThat(ramen.getId(), is((long) 1));
-		assertThat(ramen.getShop(), is("つけ麺舞"));
-		assertThat(ramen.getPerson(), is("すみれ"));
-
 	}
 	*/
 
