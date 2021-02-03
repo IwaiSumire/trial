@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.stubbing.OngoingStubbing;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.demo.domain.Ramen;
@@ -71,11 +72,21 @@ class RamenServiceTest {
 
 		when(ramenMapper.selectOne((long) 1)).thenReturn(niseRamen);
 
-
 		Ramen ramenSelectOne = ramenService.selectOne((long) 1);
 		assertThat(ramenSelectOne.getPerson(), is("すみれ"));
 		assertThat(ramenSelectOne.getShop(), is("つけ麺舞"));
+		assertThat(ramenSelectOne.getStar(), is("★★"));
 
+	}
+
+	@Test
+	void Ramenテーブルから指定した内容が消せていたらOK() {
+
+		ramenMapper.delete((long) 1);
+
+		ramenService.delete((long) 1);
+
+		assertThat(ramenMapper.selectAll(), niseList);
 
 
 	}
