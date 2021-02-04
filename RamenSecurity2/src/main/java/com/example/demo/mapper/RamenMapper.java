@@ -32,7 +32,8 @@ public interface RamenMapper {
 	@Delete("delete from ramen where id = #{id}")
 	void delete(Long id);
 
-	@Select("select * from ramen where shop collate utf8_unicode_ci like '%${sShop}%'")
+	@Select("select * from ramen where shop LIKE CONCAT('%', #{sShop}, '%')")
 	List<Ramen> serchShopId(String sShop);
+
 
 }

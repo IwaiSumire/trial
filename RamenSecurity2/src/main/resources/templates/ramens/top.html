@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script>
-	$(document).ready(function() {
+	$(window).load(function() {
 		$('#fav-table').tablesorter();
 	});
 </script>
@@ -83,8 +83,7 @@
 				<td><a th:href="@{/ramens/{id}/change(id=*{id})}"><button
 							type="button" class="btn btn-primary">変更</button></a></td>
 				<td>
-					<form th:action="@{/ramens/{id}/delete(id=*{id})}"
-						th:method="get">
+					<form th:action="@{/ramens/{id}/delete(id=*{id})}" th:method="get">
 						<!-- public delete にaccessできる -->
 						<!-- Destryボタンが押されると、players/id にマッピングされたメソッドが呼ばれる-->
 						<button class="btn btn-dark">消去</button>
