@@ -19,6 +19,7 @@ import com.example.demo.service.RamenService;
 @RequestMapping("/ramens")
 public class RamenController {
 
+
 	@Autowired
 	private RamenService ramenService;
 
@@ -32,6 +33,7 @@ public class RamenController {
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
 	public String newRamen(Authentication loginUser, Model model, @ModelAttribute Ramen ramen) {//objectの値を受け取る必要がある
+
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}

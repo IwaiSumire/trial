@@ -30,6 +30,8 @@
 
 				<div class="mt-2 mb-2">
 
+					<div th:if="${#fields.hasErrors('password')}"
+						th:errors="*{password}"></div>
 					<input type="radio" name="user" value="user" th:field="*{role}"
 						checked="checked">ユーザ <input class="ml-2" type="radio"
 						name="admin" value="admin" th:field="*{role}">管理者
@@ -37,8 +39,7 @@
 
 				</div>
 
-				<div th:if="${#fields.hasErrors('password')}"
-					th:errors="*{password}"></div>
+
 
 				<button class="btn btn-lg btn-primary btn-block" name="Submit"
 					value="Login" type="Submit">新規登録</button>
