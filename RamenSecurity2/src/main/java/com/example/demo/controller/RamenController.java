@@ -19,7 +19,6 @@ import com.example.demo.service.RamenService;
 @RequestMapping("/ramens")
 public class RamenController {
 
-
 	@Autowired
 	private RamenService ramenService;
 
@@ -58,13 +57,20 @@ public class RamenController {
 
 	@GetMapping("{id}/change") //編集画面に行くまでの画面
 	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
+
+
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
 	@GetMapping("put/{id}") //更新画面
-	public String update(Ramen ramen) {
+	public String update(Ramen ramen, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "ramens/change";
+		}
+
 		ramenService.update(ramen);
 		return "redirect:/ramens";
 	}
