@@ -44,6 +44,15 @@ public class RamenController {
 			return "ramens/new";//"redirect:/ramens/new"
 		}
 
+		if (ramen.getPic() == "") {
+			ramen.setPic("https://www.shoshinsha-design.com/wp-content/uploads/2020/05/noimage-760x460.png");
+		} else {
+
+			if (!(ramen.getPic().substring(0, 4).equals("http"))) {
+				ramen.setPic("https://www.shoshinsha-design.com/wp-content/uploads/2020/05/noimage-760x460.png");
+			}
+		}
+
 		ramenService.insert(ramen);
 		return "redirect:/ramens";//一覧表に戻る
 	}
@@ -58,14 +67,13 @@ public class RamenController {
 	@GetMapping("{id}/change") //編集画面に行くまでの画面
 	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
 
-
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
 	@GetMapping("put/{id}") //更新画面
-	public String update(Ramen ramen, BindingResult result) {
+	public String update(@Validated Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
 			return "ramens/change";
