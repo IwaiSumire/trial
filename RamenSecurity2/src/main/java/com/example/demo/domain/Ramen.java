@@ -22,7 +22,7 @@ public class Ramen {
 	private String type;
 
 
-	@Pattern(regexp = "[★|★★|★★★|★★★★|★★★★★]")
+	@Pattern(regexp = "★|★★|★★★|★★★★|★★★★★" ,message = "★以外はNG")
 	private String star;
 
 	@DateTimeFormat(pattern = "yyyy/MM/dd")

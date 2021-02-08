@@ -72,7 +72,7 @@ public class RamenController {
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
-	@GetMapping("put/{id}") //更新画面
+	@PostMapping("put/{id}") //更新画面
 	public String update(@Validated Ramen ramen, BindingResult result) {
 
 		if (result.hasErrors()) {
