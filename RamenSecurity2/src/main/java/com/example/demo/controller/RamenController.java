@@ -32,6 +32,7 @@ public class RamenController {
 
 	@GetMapping("new") //top→newボタンから「ramens/new」へ行く処理を受け取ったので"new"のとき
 	public String newRamen(Authentication loginUser, Model model, @ModelAttribute Ramen ramen) {//objectの値を受け取る必要がある
+
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/new";//ramens/newへいく（何もしていない）
 	}
@@ -41,6 +42,15 @@ public class RamenController {
 
 		if (result.hasErrors()) {
 			return "ramens/new";//"redirect:/ramens/new"
+		}
+
+		if (ramen.getPic() == "") {
+			ramen.setPic("https://www.shoshinsha-design.com/wp-content/uploads/2020/05/noimage-760x460.png");
+		} else {
+
+			if (!(ramen.getPic().substring(0, 4).equals("http"))) {
+				ramen.setPic("https://www.shoshinsha-design.com/wp-content/uploads/2020/05/noimage-760x460.png");
+			}
 		}
 
 		ramenService.insert(ramen);
@@ -56,13 +66,19 @@ public class RamenController {
 
 	@GetMapping("{id}/change") //編集画面に行くまでの画面
 	public String change(Authentication loginUser, @PathVariable Long id, Model model) {
+
 		model.addAttribute("ramen", ramenService.selectOne(id));
 		model.addAttribute("username", loginUser.getName());
 		return "ramens/change";//取得したidを使って、change画面へ
 	}
 
-	@GetMapping("put/{id}") //更新画面
-	public String update(Ramen ramen) {
+	@PostMapping("put/{id}") //更新画面
+	public String update(@Validated Ramen ramen, BindingResult result) {
+
+		if (result.hasErrors()) {
+			return "ramens/change";
+		}
+
 		ramenService.update(ramen);
 		return "redirect:/ramens";
 	}

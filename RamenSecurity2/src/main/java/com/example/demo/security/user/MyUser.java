@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Pattern;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,21 +13,16 @@ import com.example.demo.validator.UniqueLogin;
 
 public class MyUser implements UserDetails {
 
-
 	@NotBlank
-	@Size(min = 5, max = 20, message = "5～20文字以内で入力してください")
+	//@Size(min = 5, max = 20, message = "5～20文字以内で入力してください")
+	@Pattern(regexp = "(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}", message = "8文字以上、1文字以上の数字、小文字アルファベット、大文字アルファベットが必須")
 	private String password;
 
 	@NotBlank(message = "入力してください")
 	@Email(message = "アドレス形式で入力してください")
+	@NotBlank
 	@UniqueLogin
 	private String username;
-
-	@Size(min = 1, max = 7, message = "1～7文字以内で入力してください")
-	@NotBlank
-
-
-
 
 	public String getRole() {
 		return role;
