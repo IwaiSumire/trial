@@ -1,21 +1,27 @@
 package com.example.demo.securityController;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("")
 public class SecurityController {
 
-	@GetMapping("/login") //loginに来るので
-	public String success() {
-		return "login";
+	@GetMapping("/login") //configのloginPageでloginに来るように指定したので
+	public String login() {
+		return "login";//自作のloginページを表示
 	}
 
-	@GetMapping("/hello")
-	public String hello() {
-		return "hello";
+	@GetMapping("/hello") //configのdefaultSuccessUrlでhelloに来るように指定したので
+	public String hello(Authentication loginUser,Model model) {
+
+		/*AuthenticationでログインUserの情報を使うことができるので
+		modelを使って、"username"にusernameを詰める*/
+
+		model.addAttribute("username",loginUser.getName());
+
+		return "hello";//helloを表示。usernameをhelloで表示できる
 	}
 
 }

@@ -16,21 +16,18 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
-
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Autowired
 	private UserDetailsService userDetailsService;
 
-	@Bean //パスワードのエンコードの指定（エンコード化は他にも色々ある）
+	@Bean //パスワードのエンコード
 	public BCryptPasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
 
-	@Override //urlごとに異なる設定をする
+	@Override //securityの設定をする
 	protected void configure(HttpSecurity http) throws Exception {
-
-		/*直リンクの禁止の記述*/
 
 		http
 				.authorizeRequests()//ルール、アクセスポリシーの設定
@@ -39,10 +36,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 				.and()
 				.formLogin()//ログインの設定
 				.loginPage("/login")
-				.defaultSuccessUrl("/hello", true)//ログインが成功したら/ramensにいく
+				.defaultSuccessUrl("/hello", true)//ログインが成功したら/helloにいく
 				.and()
 				.logout()//ログアウトの設定
-				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));//ログアウトページ
+				.logoutRequestMatcher(new AntPathRequestMatcher("/logout"));//logoutのURLを/logoutにする
 
 	}
 
@@ -50,8 +47,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth
-				.userDetailsService(userDetailsService);//userDetailsServiceを使って、DBからユーザを参照する
-
+				//userDetailsServiceを使って、DBからユーザを参照する
+				.userDetailsService(userDetailsService);
 
 	}
 

@@ -15,17 +15,17 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-	@Autowired //mapperをインスタンス化。DB接続をするMapperクラスを参照します
+	@Autowired //mapperをインスタンス化。DB接続をするMapperクラスを参照
 	private UserMapper userMapper;
 
-	@Override //passwordのチェックはSpringSecurityがやってくれるらしい
+	//loadUserByUsernameは実装が必要
+	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
+		//findByUsernameで見つけてきたユーザ情報をmyUserに入れる
+		MyUser myUser = userMapper.findByUsername(username);
 
-		//loadUserByUsernameは実装が必要
-		MyUser myUser = userMapper.findByUsername(username);//SQL発動。nameが一致したものを取得
-
-
+		//UserDetailsにreturn
 		return myUser;
 
 	}
