@@ -12,11 +12,24 @@ public class Main {
 
 		int n = sc.nextInt();
 
-		if (n % 100 > 1) {
+		if (n % 100 != 0) {
 
 			count = -1;
 
-		} else if (n >= 500) {
+		} else if (n >= 100) {
+			if (n >= 500) {
+				count = n / 500;
+			}
+
+			if (n - (500 * count) >= 100) {
+				
+				int s = n - count * 500;
+				count = count + (s / 100);
+			}
+
+		}
+
+		/*else if (n >= 500) {
 
 			count = n / 500;
 
@@ -28,7 +41,7 @@ public class Main {
 
 			}
 
-		}
+			}*/
 
 		System.out.println(count);
 
