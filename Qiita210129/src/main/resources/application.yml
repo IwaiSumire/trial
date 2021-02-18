@@ -3,8 +3,8 @@ spring:
     active: dev
   datasource:
     initialization-mode: always
-    url: jdbc:mysql://aa10ip25rysnj1o.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:3306/ebdb
-    username: admin
-    password: kururu966
+    url: jdbc:mysql://aa10ip25rysnj1o.cxtvmghsbw6d.ap-northeast-1.rds.amazonaws.com:XXXX/ebdb
+    username: XXXXX
+    password: XXXXX
 server: 
   port: 5000
