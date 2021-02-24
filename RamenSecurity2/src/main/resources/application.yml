@@ -8,3 +8,14 @@ spring:
     password: awsawsaws
 server: 
   port: 5000
+---
+spring:
+  profiles:
+    active: dev
+  datasource:
+    initialization-mode: always
+    url: jdbc:mysql://localhost:3306/mydb?serverTimezone=JST
+    username: root
+    password: kururu966
+server: 
+  port: 8080
